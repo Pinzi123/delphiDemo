@@ -1,0 +1,157 @@
+inherited SOutputFrame: TSOutputFrame
+  inherited QTeMaster: TMSQuery
+    SQL.Strings = (
+      'select * FROM [CNData].[dbo].[Te_Store] where List_No <> '#39#39)
+    object QTeMasterStr_Auto: TGuidField
+      FieldName = 'Str_Auto'
+      FixedChar = True
+      Size = 38
+    end
+    object QTeMasterGive_Date: TDateTimeField
+      FieldName = 'Give_Date'
+    end
+    object QTeMasterMove_Date: TDateTimeField
+      FieldName = 'Move_Date'
+    end
+    object QTeMasterList_No: TStringField
+      FieldName = 'List_No'
+      Size = 38
+    end
+    object QTeMasterPur_No: TStringField
+      FieldName = 'Pur_No'
+      Size = 38
+    end
+    object QTeMasterDepart_Name: TStringField
+      FieldName = 'Depart_Name'
+      Size = 30
+    end
+    object QTeMasterPA: TStringField
+      FieldName = 'PA'
+      Size = 12
+    end
+    object QTeMasterRemark: TStringField
+      FieldName = 'Remark'
+      Size = 120
+    end
+    object QTeMasterAply_Status: TBooleanField
+      FieldName = 'Aply_Status'
+    end
+    object QTeMasterTemp_Date: TStringField
+      FieldName = 'Temp_Date'
+      Size = 10
+    end
+    object QTeMasterFCheck: TBooleanField
+      FieldName = 'FCheck'
+    end
+    object QTeMasterFCheck_Name: TStringField
+      FieldName = 'FCheck_Name'
+      Size = 10
+    end
+    object QTeMasterRCheck: TBooleanField
+      FieldName = 'RCheck'
+    end
+    object QTeMasterRCheck_Name: TStringField
+      FieldName = 'RCheck_Name'
+      Size = 10
+    end
+    object QTeMasterCreate_Name: TStringField
+      FieldName = 'Create_Name'
+      Size = 10
+    end
+    object QTeMasterCreate_Date: TDateTimeField
+      FieldName = 'Create_Date'
+    end
+    object QTeMasterUpd_Name: TStringField
+      FieldName = 'Upd_Name'
+      Size = 10
+    end
+    object QTeMasterUpd_Date: TDateTimeField
+      FieldName = 'Upd_Date'
+    end
+  end
+  inherited QTeA: TMSQuery
+    SQL.Strings = (
+      'select * FROM [CNData].[dbo].[Te_Storea]')
+    MasterFields = 'Str_Auto;List_No'
+    DetailFields = 'Str_Auto;List_No'
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'Str_Auto'
+      end
+      item
+        DataType = ftString
+        Name = 'List_No'
+      end>
+    object QTeAStr_Auto: TStringField
+      FieldName = 'Str_Auto'
+      Size = 38
+    end
+    object QTeAList_No: TStringField
+      FieldName = 'List_No'
+      Size = 38
+    end
+    object QTeAPur_No: TStringField
+      FieldName = 'Pur_No'
+      Size = 38
+    end
+    object QTeAItem_No: TIntegerField
+      FieldName = 'Item_No'
+    end
+    object QTeAMat_No: TStringField
+      FieldName = 'Mat_No'
+      Size = 14
+    end
+    object QTeAMat_Name: TStringField
+      FieldName = 'Mat_Name'
+      Size = 50
+    end
+    object QTeAMat_Desc: TStringField
+      FieldName = 'Mat_Desc'
+      Size = 50
+    end
+    object QTeAVendor: TStringField
+      FieldName = 'Vendor'
+      Size = 12
+    end
+    object QTeAVnd_Qty: TFloatField
+      FieldName = 'Vnd_Qty'
+    end
+    object QTeAPay_Qty: TFloatField
+      FieldName = 'Pay_Qty'
+    end
+    object QTeAPrice: TFloatField
+      FieldName = 'Price'
+    end
+    object QTeAQua_Qty: TFloatField
+      FieldName = 'Qua_Qty'
+    end
+    object QTeAUnQua_Qty: TFloatField
+      FieldName = 'UnQua_Qty'
+    end
+    object QTeARefuse_Qty: TFloatField
+      FieldName = 'Refuse_Qty'
+    end
+    object QTeARemark: TStringField
+      FieldName = 'Remark'
+      Size = 100
+    end
+    object QTeACreate_Name: TStringField
+      FieldName = 'Create_Name'
+      Size = 10
+    end
+    object QTeACreate_Date: TDateTimeField
+      FieldName = 'Create_Date'
+    end
+    object QTeAUpd_Name: TStringField
+      FieldName = 'Upd_Name'
+      Size = 10
+    end
+    object QTeAUpd_Date: TDateTimeField
+      FieldName = 'Upd_Date'
+    end
+    object QTeAAcc_Qty: TFloatField
+      FieldName = 'Acc_Qty'
+    end
+  end
+end

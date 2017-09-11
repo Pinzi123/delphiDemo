@@ -1,0 +1,174 @@
+inherited TePurchaseaEditorForm: TTePurchaseaEditorForm
+  Left = 314
+  Top = 460
+  Caption = 'TePurchaseaEditorForm'
+  ClientHeight = 194
+  ClientWidth = 529
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  OldCreateOrder = True
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    Width = 529
+    Height = 194
+    object Label2: TLabel
+      Left = 21
+      Top = 29
+      Width = 80
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Pur_No'
+    end
+    object Label1: TLabel
+      Left = 250
+      Top = 29
+      Width = 80
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Item_No'
+    end
+    object Label4: TLabel
+      Left = 250
+      Top = 53
+      Width = 80
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Mat_No'
+    end
+    object Label5: TLabel
+      Left = 21
+      Top = 53
+      Width = 80
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Vendor'
+    end
+    object Label6: TLabel
+      Left = 250
+      Top = 75
+      Width = 80
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Price'
+    end
+    object Label7: TLabel
+      Left = 21
+      Top = 75
+      Width = 80
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Req_Pur_Qty'
+    end
+    object Label11: TLabel
+      Left = 21
+      Top = 96
+      Width = 80
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Remark'
+    end
+    object cxDBButtonEdit1: TcxDBButtonEdit
+      Left = 104
+      Top = 26
+      DataBinding.DataField = 'Pur_No'
+      DataBinding.DataSource = EditData
+      Enabled = False
+      Properties.Buttons = <
+        item
+          Default = True
+          Kind = bkEllipsis
+        end>
+      Style.ButtonTransparency = ebtHideUnselected
+      TabOrder = 0
+      Width = 135
+    end
+    object cxDBButtonEdit2: TcxDBButtonEdit
+      Left = 352
+      Top = 26
+      DataBinding.DataField = 'Item_No'
+      DataBinding.DataSource = EditData
+      Enabled = False
+      Properties.Buttons = <
+        item
+          Default = True
+          Kind = bkEllipsis
+        end>
+      Style.ButtonTransparency = ebtHideUnselected
+      TabOrder = 1
+      Width = 135
+    end
+    object cxDBButtonEdit3: TcxDBButtonEdit
+      Left = 104
+      Top = 48
+      DataBinding.DataField = 'Vendor'
+      DataBinding.DataSource = EditData
+      Properties.Buttons = <
+        item
+          Default = True
+          Kind = bkEllipsis
+        end>
+      Style.ButtonTransparency = ebtHideUnselected
+      TabOrder = 2
+      Width = 135
+    end
+    object cxDBButtonEdit4: TcxDBButtonEdit
+      Left = 352
+      Top = 49
+      DataBinding.DataField = 'Mat_No'
+      DataBinding.DataSource = EditData
+      Properties.Buttons = <
+        item
+          Default = True
+          Kind = bkEllipsis
+        end>
+      Style.ButtonTransparency = ebtHideUnselected
+      TabOrder = 3
+      Width = 135
+    end
+    object cxDBMaskEdit1: TcxDBMaskEdit
+      Left = 353
+      Top = 72
+      DataBinding.DataField = 'Price'
+      DataBinding.DataSource = EditData
+      Properties.MaskKind = emkRegExpr
+      Properties.EditMask = '\d+\.{0,1}\d+'
+      Properties.MaxLength = 0
+      TabOrder = 4
+      Width = 135
+    end
+    object cxDBMaskEdit2: TcxDBMaskEdit
+      Left = 104
+      Top = 71
+      DataBinding.DataField = 'Req_Pur_Qty'
+      DataBinding.DataSource = EditData
+      Properties.MaskKind = emkRegExpr
+      Properties.EditMask = '\d+'
+      Properties.MaxLength = 0
+      TabOrder = 5
+      Width = 135
+    end
+    object cxDBTextEdit6: TcxDBTextEdit
+      Left = 106
+      Top = 94
+      DataBinding.DataField = 'Remark'
+      DataBinding.DataSource = EditData
+      TabOrder = 6
+      Width = 383
+    end
+  end
+  inherited cxButton1: TcxButton
+    Left = 132
+    Top = 142
+  end
+  inherited cxButton2: TcxButton
+    Top = 141
+  end
+end

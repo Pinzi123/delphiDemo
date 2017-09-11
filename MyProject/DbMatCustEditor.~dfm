@@ -1,0 +1,210 @@
+inherited DbMatCustEditorForm: TDbMatCustEditorForm
+  Left = 292
+  Top = 293
+  Caption = 'DbMatCustEditorForm'
+  ClientHeight = 161
+  ClientWidth = 514
+  OldCreateOrder = True
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    Width = 514
+    Height = 161
+    object Label1: TLabel
+      Left = 18
+      Top = 30
+      Width = 90
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Mat_No'
+    end
+    object Label2: TLabel
+      Left = 265
+      Top = 30
+      Width = 86
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Cust_Sim'
+    end
+    object Label21: TLabel
+      Left = 18
+      Top = 75
+      Width = 90
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'S_ManNo'
+    end
+    object Label22: TLabel
+      Left = 259
+      Top = 75
+      Width = 90
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'S_ManName'
+    end
+    object Label23: TLabel
+      Left = 262
+      Top = 51
+      Width = 90
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'C_Position'
+    end
+    object Label3: TLabel
+      Left = 18
+      Top = 51
+      Width = 90
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Cust_Name'
+    end
+    object cxDBButtonEdit1: TcxDBButtonEdit
+      Left = 354
+      Top = 26
+      Width = 135
+      Height = 21
+      DataBinding.DataField = 'Cust_Sim'
+      DataBinding.DataSource = EditData
+      Properties.Buttons = <
+        item
+          Default = True
+          Kind = bkEllipsis
+        end>
+      Properties.OnButtonClick = cxDBButtonEdit1PropertiesButtonClick
+      Properties.OnEditValueChanged = cxDBButtonEdit1PropertiesEditValueChanged
+      Style.ButtonTransparency = ebtHideUnselected
+      TabOrder = 1
+    end
+    object cxDBTextEdit1: TcxDBTextEdit
+      Left = 112
+      Top = 26
+      Width = 135
+      Height = 21
+      DataBinding.DataField = 'Mat_No'
+      DataBinding.DataSource = EditData
+      Enabled = False
+      TabOrder = 0
+    end
+    object cxDBButtonEdit2: TcxDBButtonEdit
+      Left = 112
+      Top = 71
+      Width = 135
+      Height = 21
+      DataBinding.DataField = 'S_ManNo'
+      DataBinding.DataSource = EditData
+      Enabled = False
+      Properties.Buttons = <
+        item
+          Default = True
+          Kind = bkEllipsis
+        end>
+      Properties.OnButtonClick = cxDBButtonEdit2PropertiesButtonClick
+      Properties.OnEditValueChanged = cxDBButtonEdit2PropertiesEditValueChanged
+      Style.ButtonTransparency = ebtHideUnselected
+      TabOrder = 4
+    end
+    object cxDBComboBox4: TcxDBComboBox
+      Left = 355
+      Top = 48
+      Width = 135
+      Height = 21
+      DataBinding.DataField = 'C_Position'
+      DataBinding.DataSource = EditData
+      Properties.DropDownListStyle = lsEditFixedList
+      Style.ButtonTransparency = ebtHideUnselected
+      TabOrder = 3
+    end
+    object cxDBTextEdit2: TcxDBTextEdit
+      Left = 112
+      Top = 48
+      Width = 135
+      Height = 21
+      DataBinding.DataField = 'Cust_Name'
+      DataBinding.DataSource = EditData
+      Enabled = False
+      TabOrder = 2
+    end
+    object cxDBComboBox1: TcxDBComboBox
+      Left = 356
+      Top = 72
+      Width = 133
+      Height = 21
+      DataBinding.DataField = 'S_ManName'
+      DataBinding.DataSource = EditData
+      Properties.Items.Strings = (
+        #21555#38283#40300#9
+        #29579#24314#25991#9
+        #38515#36557#9
+        #31243#40845#9
+        #29579#21916#26519#9
+        #21692#33399#36637#9
+        #26446#20803#9
+        #23002#22958#9
+        #34083#32005#39321#9
+        #38515#29618#9
+        #21129#29577#26124#9
+        #21555#29634#9
+        #40643#37329#38596#9
+        #36084#31119#27054#9
+        #21776'    '#25463#9
+        #32918#22372#23449#9
+        #26446#21521#26366#9
+        #38515#32005#24179#9
+        #21129#23307#23071#9
+        #27611#20339#20339#9
+        #40643#33399#32005#9
+        #26954#23567#21083#9
+        #23391#31077#29081#9
+        #32645#26313#29141#9
+        #20522#28023#29141#9
+        #37101#26575#34382#9
+        #32993'    '#20977#9
+        #35377'   '#21220#9
+        #21129#23567#38738#9
+        #32918#31435#33775#9
+        #24373#28644#9
+        #30439#24950#40845#9
+        #21608#32005'1'#9
+        #27754#32005#26757#9
+        #21555#31062#23792#9
+        #26954#24425#20113#9
+        #26446#29141#9
+        #34083#26041#38642#9
+        #38518#26690#29645#9
+        #34081#24535#25935#9
+        #36249#25935#25935#9
+        #29579#28023#36557#9
+        #31456#22823#38617#9
+        #23020#34907#40300#9
+        #31206#36637#38686#9
+        #38991#26847#9
+        #40643#29748#9
+        #38515#28165#40599#9
+        #21129#32380#25104#9
+        #36032#33399#33805#9
+        #38520#26149#38686#9
+        #38520#25991#26143#9
+        #21776#23071#9
+        #20489#24235#20844#20849#29992#25142#9
+        #32918#26032#40179#9
+        #25140#23416#32676#9
+        #26607#29141#26044#9
+        #26954#20025#9)
+      TabOrder = 5
+    end
+  end
+  inherited cxButton1: TcxButton
+    Left = 160
+    Top = 112
+  end
+  inherited cxButton2: TcxButton
+    Left = 286
+    Top = 112
+  end
+end

@@ -1,0 +1,157 @@
+unit DbMatCustEditor;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, AModelEditor, cxLookAndFeelPainters, DB, StdCtrls, cxButtons,
+  ExtCtrls, cxDBEdit, cxControls, cxContainer, cxEdit, cxTextEdit,
+  cxMaskEdit, cxButtonEdit, cxDropDownEdit;
+
+type
+  TDbMatCustEditorForm = class(TAModelEditorForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    cxDBButtonEdit1: TcxDBButtonEdit;
+    cxDBTextEdit1: TcxDBTextEdit;
+    Label21: TLabel;
+    cxDBButtonEdit2: TcxDBButtonEdit;
+    Label22: TLabel;
+    Label23: TLabel;
+    cxDBComboBox4: TcxDBComboBox;
+    Label3: TLabel;
+    cxDBTextEdit2: TcxDBTextEdit;
+    cxDBComboBox1: TcxDBComboBox;
+    procedure cxDBButtonEdit1PropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure cxDBButtonEdit1PropertiesEditValueChanged(Sender: TObject);
+    procedure cxDBButtonEdit2PropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure cxDBButtonEdit2PropertiesEditValueChanged(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure cxButton1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DbMatCustEditorForm: TDbMatCustEditorForm;
+
+implementation
+
+uses AData, APubUnit;
+
+{$R *.dfm}
+
+procedure TDbMatCustEditorForm.FormShow(Sender: TObject);
+begin
+  inherited;
+cxDBButtonEdit1.Enabled:=(TempEditBool) and cxDBButtonEdit1.Enabled;
+end;
+
+procedure TDbMatCustEditorForm.cxDBButtonEdit1PropertiesButtonClick(
+  Sender: TObject; AButtonIndex: Integer);
+begin
+if EditData.State in [dsInsert,dsEdit] then
+   begin
+     if SelectData('SELECT   Cust_Sim, Cust_Name FROM    dbo.Db_CustClass WHERE Cust_Sim<>''X''') then
+        begin
+           CheckValue:=False;
+           EditData.DataSet.FieldByName('Cust_Sim').AsString:=ADMSystem.QAPubData.FieldByName('Cust_Sim').AsString;
+           EditData.DataSet.FieldByName('Cust_Name').AsString:=ADMSystem.QAPubData.FieldByName('Cust_Name').AsString;
+           EditData.DataSet.FieldByName('Cust_Sim').ConstraintErrorMessage:='';
+           CheckValue:=True;
+        end;
+     QAPubDataClose;
+   end;
+end;
+
+procedure TDbMatCustEditorForm.cxDBButtonEdit1PropertiesEditValueChanged(
+  Sender: TObject);
+begin
+if CheckValue and (EditData.State in [dsInsert,dsEdit]) then
+   begin
+     TempString:='SELECT   Cust_Sim, Cust_Name FROM    dbo.Db_CustClass WHERE (Cust_Sim=''%S'')';
+     QAPubDataOpen(Format(TempString,[EditData.DataSet.FieldByName('Cust_No').AsString]));
+     if ADMSystem.QAPubData.RecordCount=1 then
+        begin
+           EditData.DataSet.FieldByName('Cust_Sim').AsString:=ADMSystem.QAPubData.FieldByName('Cust_Sim').AsString;
+           EditData.DataSet.FieldByName('Cust_Name').AsString:=ADMSystem.QAPubData.FieldByName('Cust_Name').AsString;
+           EditData.DataSet.FieldByName('Cust_Sim').ConstraintErrorMessage:='';
+        end
+     else
+       begin
+          EditData.DataSet.FieldByName('Cust_Sim').ConstraintErrorMessage:=EditData.DataSet.FieldByName('Cust_Sim').DisplayLabel+';';
+          ShowWarning('輸入有誤,請重新輸入!!!');
+          (Sender as TcxDBButtonEdit).SetFocus;
+       end;
+     ADMSystem.QAPubData.Close;
+   end;
+end;
+
+procedure TDbMatCustEditorForm.cxDBButtonEdit2PropertiesButtonClick(
+  Sender: TObject; AButtonIndex: Integer);
+begin
+if EditData.State in [dsInsert,dsEdit] then
+   begin
+     if SelectData('SELECT   User_Id, User_Name FROM   dbo.Af_User') then
+        begin
+           CheckValue:=False;
+           EditData.DataSet.FieldByName('S_ManNo').AsString:=ADMSystem.QAPubData.FieldByName('User_Id').AsString;
+           EditData.DataSet.FieldByName('S_ManName').AsString:=ADMSystem.QAPubData.FieldByName('User_Name').AsString;
+           EditData.DataSet.FieldByName('S_ManNo').ConstraintErrorMessage:='';
+           CheckValue:=True;
+        end;
+     QAPubDataClose;
+   end;
+end;
+
+procedure TDbMatCustEditorForm.cxDBButtonEdit2PropertiesEditValueChanged(
+  Sender: TObject);
+begin
+if CheckValue and (EditData.State in [dsInsert,dsEdit]) then
+   begin
+     TempString:='SELECT   User_Id, User_Name FROM   dbo.Af_User WHERE User_Id=''%S''';
+     QAPubDataOpen(Format(TempString,[EditData.DataSet.FieldByName('S_ManNo').AsString]));
+     if ADMSystem.QAPubData.RecordCount=1 then
+        begin
+           EditData.DataSet.FieldByName('S_ManNo').AsString:=ADMSystem.QAPubData.FieldByName('User_Id').AsString;
+           EditData.DataSet.FieldByName('S_ManName').AsString:=ADMSystem.QAPubData.FieldByName('User_Name').AsString;
+           EditData.DataSet.FieldByName('S_ManNo').ConstraintErrorMessage:='';
+        end
+     else
+       begin
+          EditData.DataSet.FieldByName('S_ManNo').ConstraintErrorMessage:=EditData.DataSet.FieldByName('S_ManNo').DisplayLabel+';';
+          ShowWarning('輸入有誤,請重新輸入!!!');
+          (Sender as TcxDBButtonEdit).SetFocus;
+       end;
+     ADMSystem.QAPubData.Close;
+   end;
+end;
+
+procedure TDbMatCustEditorForm.cxButton1Click(Sender: TObject);
+begin
+CheckValue:=False;
+if EditData.State in [dsInsert,dsEdit] then
+  begin
+   if TempEditBool then
+      begin
+        if  EditData.DataSet.FieldByName('Cust_Sim').AsString='X' then
+            EditData.DataSet.FieldByName('Cust_Sim').AsString:='';
+      end
+   else
+      EditData.DataSet.FieldByName('Cust_Sim').AsString:='X';
+  end;
+CheckValue:=True;
+  inherited;
+
+end;
+
+Initialization
+  RegisterClass(TDbMatCustEditorForm);
+finalization
+  UnRegisterClass(TDbMatCustEditorForm);
+
+end.
