@@ -247,7 +247,6 @@ inherited TeInputaEditorForm: TTeInputaEditorForm
     DataBinding.DataSource = EditData
     Properties.ValidateOnEnter = True
     TabOrder = 4
-    OnExit = cxDBTextEdit10PropertiesEditValueChanged
     Width = 135
   end
 end

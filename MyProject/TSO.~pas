@@ -41,6 +41,16 @@ type
     QTeMasterUpd_Date: TDateTimeField;
     QTeAMat_Desc: TStringField;
     QTeAMat_Name: TStringField;
+    QTeMasterList_Type: TStringField;
+    QTeMasterMove_Type: TStringField;
+    QTeMasterIsOrder: TBooleanField;
+    QTeMasterUse_Status: TBooleanField;
+    QTeMasterPrint_Status: TBooleanField;
+    QTeMasterFCheck_Date: TDateTimeField;
+    QTeMasterRCheck_Name: TStringField;
+    QTeMasterRCheck_Date: TDateTimeField;
+    QTeMasterRCheck: TBooleanField;
+    QTeMasterTemp_Status: TBooleanField;
   private
     { Private declarations }
   public

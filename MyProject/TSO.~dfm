@@ -1,7 +1,7 @@
 inherited SOFrame: TSOFrame
   Height = 682
   inherited wwDBGrid1: TwwDBGrid
-    Height = 443
+    Height = 458
   end
   inherited wwDBGrid2: TwwDBGrid
     Top = 482
@@ -53,6 +53,39 @@ inherited SOFrame: TSOFrame
     object QTeMasterUpd_Date: TDateTimeField
       FieldName = 'Upd_Date'
     end
+    object QTeMasterList_Type: TStringField
+      FieldName = 'List_Type'
+      Size = 12
+    end
+    object QTeMasterMove_Type: TStringField
+      FieldName = 'Move_Type'
+      Size = 3
+    end
+    object QTeMasterIsOrder: TBooleanField
+      FieldName = 'IsOrder'
+    end
+    object QTeMasterUse_Status: TBooleanField
+      FieldName = 'Use_Status'
+    end
+    object QTeMasterPrint_Status: TBooleanField
+      FieldName = 'Print_Status'
+    end
+    object QTeMasterFCheck_Date: TDateTimeField
+      FieldName = 'FCheck_Date'
+    end
+    object QTeMasterRCheck_Name: TStringField
+      FieldName = 'RCheck_Name'
+      Size = 10
+    end
+    object QTeMasterRCheck_Date: TDateTimeField
+      FieldName = 'RCheck_Date'
+    end
+    object QTeMasterRCheck: TBooleanField
+      FieldName = 'RCheck'
+    end
+    object QTeMasterTemp_Status: TBooleanField
+      FieldName = 'Temp_Status'
+    end
   end
   inherited QTeA: TMSQuery
     SQL.Strings = (
@@ -66,6 +99,7 @@ inherited SOFrame: TSOFrame
       end>
     object QTeAList_No: TStringField
       FieldName = 'List_No'
+      Visible = False
       Size = 12
     end
     object QTeAItem_No: TIntegerField

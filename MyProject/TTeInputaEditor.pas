@@ -128,24 +128,25 @@ begin
        QAPubDataOpen(Format(TempString,[PurStr,ItemNo]));
        if  (strtofloat(EditData.DataSet.FieldByName('Acc_Qty').AsString) > strtofloat(ADMSystem.QAPubData.FieldByName('Req_Pur_Qty').AsString)) then
           begin
+            EditData.DataSet.FieldByName('Acc_Qty').AsString = '0';
             EditData.DataSet.FieldByName('Acc_Qty').ConstraintErrorMessage:='';
             ShowWarning('輸入的數值過大');
             (Sender as TcxDBTextEdit).SetFocus;
          end;
        ADMSystem.QAPubData.Close;
      end
-     else if(ListStr <> '') then
-     begin
-       TempString:='SELECT  Req_Qty FROM dbo.Te_Lista WHERE List_No=''%S'' AND Item_No=''%S'' ';
-       QAPubDataOpen(Format(TempString,[ListStr,ItemNo]));
-       if  (strtofloat(EditData.DataSet.FieldByName('Acc_Qty').AsString) > strtofloat(ADMSystem.QAPubData.FieldByName('Req_Qty').AsString)) then
-          begin
-            EditData.DataSet.FieldByName('Acc_Qty').ConstraintErrorMessage:='';
-            ShowWarning('輸入的數值過大');
-            (Sender as TcxDBTextEdit).SetFocus;
-         end;
-       ADMSystem.QAPubData.Close;
-     end;
+//     else if(ListStr <> '') then
+//     begin
+//       TempString:='SELECT  Req_Qty FROM dbo.Te_Lista WHERE List_No=''%S'' AND Item_No=''%S'' ';
+//       QAPubDataOpen(Format(TempString,[ListStr,ItemNo]));
+//       if  (strtofloat(EditData.DataSet.FieldByName('Acc_Qty').AsString) > strtofloat(ADMSystem.QAPubData.FieldByName('Req_Qty').AsString)) then
+//          begin
+//            EditData.DataSet.FieldByName('Acc_Qty').ConstraintErrorMessage:='';
+//            ShowWarning('輸入的數值過大');
+//            (Sender as TcxDBTextEdit).SetFocus;
+//         end;
+//       ADMSystem.QAPubData.Close;
+//     end;
   end;
 end;
 

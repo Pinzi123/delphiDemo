@@ -2,9 +2,9 @@ inherited StoreFrame: TStoreFrame
   object wwDBGrid1: TwwDBGrid [1]
     Tag = 1
     Left = 0
-    Top = 39
+    Top = 24
     Width = 845
-    Height = 546
+    Height = 561
     HelpType = htKeyword
     Selected.Strings = (
       'Pur_No'#9'17'#9'Pur_No'

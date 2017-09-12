@@ -9,7 +9,7 @@ inherited SROFrame: TSROFrame
       item
         Control = ToolBar1
         ImageIndex = -1
-        MinHeight = 35
+        MinHeight = 20
         Width = 866
       end>
     inherited ToolBar1: TToolBar

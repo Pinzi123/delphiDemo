@@ -119,7 +119,7 @@ procedure TTeInputaEditorForm.cxDBTextEdit10PropertiesEditValueChanged(
 begin
   if CheckValue and (EditData.State in [dsInsert,dsEdit]) then
   begin
-
+    ItemNo := EditData.DataSet.FieldByName('Item_No').AsString;
     if (ItemNo = '') then
        ShowWarning('請選擇項次')
     else if(PurStr <> '') then

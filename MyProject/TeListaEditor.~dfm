@@ -115,7 +115,6 @@ inherited DhListaEditorForm: TDhListaEditorForm
       DataBinding.DataField = 'Req_Qty'
       DataBinding.DataSource = EditData
       TabOrder = 3
-      OnExit = cxDBTextEdit8Exit
       Width = 135
     end
     object cxDBTextEdit9: TcxDBTextEdit

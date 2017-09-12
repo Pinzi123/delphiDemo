@@ -19,6 +19,7 @@ inherited SOutputFrame: TSOutputFrame
     end
     object QTeMasterPur_No: TStringField
       FieldName = 'Pur_No'
+      Visible = False
       Size = 38
     end
     object QTeMasterDepart_Name: TStringField
@@ -85,14 +86,17 @@ inherited SOutputFrame: TSOutputFrame
       end>
     object QTeAStr_Auto: TStringField
       FieldName = 'Str_Auto'
+      Visible = False
       Size = 38
     end
     object QTeAList_No: TStringField
       FieldName = 'List_No'
+      Visible = False
       Size = 38
     end
     object QTeAPur_No: TStringField
       FieldName = 'Pur_No'
+      Visible = False
       Size = 38
     end
     object QTeAItem_No: TIntegerField
