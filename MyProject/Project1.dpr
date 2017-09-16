@@ -15,7 +15,11 @@ uses
   APubUnit in '..\Model\APubUnit.pas',
   AhVisible in '..\Model\AhVisible.pas' {AhVisibleFrame: TFrame},
   APubLogin in '..\Model\APubLogin.pas' {APubLoginForm},
+<<<<<<< HEAD
   Test in 'Test.pas' {TestForm},        
+=======
+  Test in 'Test.pas' {TestForm},
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
   ATest in 'ATest.pas' {Form1},
   ATestEdit in 'ATestEdit.pas' {Form2},
   ATestMy in 'ATestMy.pas' {Form3},
@@ -26,7 +30,10 @@ uses
   MatNumber in 'MatNumber.pas' {MatClassFrame},
   DbMatNumberEditor in 'DbMatNumberEditor.pas' {DbMatNumberEditorForm},
   DbMatVendorEditor in 'DbMatVendorEditor.pas' {DbMatVendorEditorForm},
+<<<<<<< HEAD
   Unit4 in 'Unit4.pas' {Form4},
+=======
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
   TPO in 'TPO.pas' {POFrame},
   TePurchaseEditor in 'TePurchaseEditor.pas' {TePurchaseEditorForm},
   TePurchaseaEditor in 'TePurchaseaEditor.pas' {TePurchaseaEditorForm},
@@ -41,6 +48,10 @@ uses
   TPOutput in 'TPOutput.pas' {POutputFrame},
   TSOutput in 'TSOutput.pas' {SOutputFrame},
   TSInput in 'TSInput.pas' {SInputFrame},
+<<<<<<< HEAD
+=======
+  Unit4 in 'Unit4.pas' {Form4},
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
   TStore in 'TStore.pas' {StoreFrame};
 
 {$R *.res}

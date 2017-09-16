@@ -9,7 +9,11 @@ inherited Form4: TForm4
       item
         Control = ToolBar1
         ImageIndex = -1
+<<<<<<< HEAD
         MinHeight = 35
+=======
+        MinHeight = 20
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
         Width = 866
       end>
     inherited ToolBar1: TToolBar
@@ -19,9 +23,15 @@ inherited Form4: TForm4
   object wwDBGrid1: TwwDBGrid [1]
     Tag = 1
     Left = 0
+<<<<<<< HEAD
     Top = 39
     Width = 870
     Height = 401
+=======
+    Top = 24
+    Width = 870
+    Height = 416
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
     HelpType = htKeyword
     Selected.Strings = (
       'Pur_No'#9'17'#9'Pur_No'
@@ -145,6 +155,7 @@ inherited Form4: TForm4
     Left = 160
     Top = 112
   end
+<<<<<<< HEAD
   object QUser: TMSQuery
     Connection = ADMSystem.ADMConnection
     SQL.Strings = (
@@ -169,4 +180,6 @@ inherited Form4: TForm4
     Left = 160
     Top = 152
   end
+=======
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
 end

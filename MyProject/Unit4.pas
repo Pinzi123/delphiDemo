@@ -4,12 +4,20 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+<<<<<<< HEAD
   Dialogs, ActnList,   ExtCtrls, ComCtrls, ToolWin, DB,
   fcStatusBar, Menus, cxGraphics, cxCustomData, cxStyles, cxTL, cxMaskEdit,
   APubUnit,AModelBrowser, cxSplitter, cxInplaceContainer,
   cxDBTL, cxControls, cxTLData,ImgList, cxPropertiesStore, MemDS, DBAccess,
   MSAccess, Wwintl, cxPC, ppDB, ppDBPipe, Grids, Wwdbigrd, Wwdbgrid,
   ppRelatv, ppProd, ppClass, ppReport, ppComm, ppEndUsr ;
+=======
+  Dialogs, AModelBrowser, Menus, ppRelatv, ppProd, ppClass, ppReport,
+  ppComm, ppEndUsr, ActnList, ComCtrls, ToolWin, DBAccess, MSAccess, ppDB,
+  DB, ppDBPipe, MemDS, cxGraphics, cxCustomData, cxStyles, cxTL,
+  cxMaskEdit, ExtCtrls, cxSplitter, cxInplaceContainer, cxDBTL, cxControls,
+  cxTLData, Grids, Wwdbigrd, Wwdbgrid;
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
 
 type
   TForm4 = class(TAModelBrowserFrame)
@@ -23,6 +31,7 @@ type
     RTeA: TppDBPipeline;
     QTeMasterSelected: TBooleanField;
     QTeASelected: TBooleanField;
+<<<<<<< HEAD
     QUser: TMSQuery;
     QUserUserName: TStringField;
     DUser: TDataSource;
@@ -30,6 +39,10 @@ type
     procedure QTeMasterAfterPost(DataSet: TDataSet);
     procedure QTeAAfterPost(DataSet: TDataSet);
     procedure QUserBeforeOpen(DataSet: TDataSet);
+=======
+    procedure QTeMasterAfterPost(DataSet: TDataSet);
+    procedure QTeAAfterPost(DataSet: TDataSet);
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
   private
     { Private declarations }
   public
@@ -57,6 +70,7 @@ begin
   QTeA.RefreshRecord;
 end;
 
+<<<<<<< HEAD
 procedure TForm4.QUserBeforeOpen(DataSet: TDataSet);
 begin
     with QUser do begin
@@ -69,4 +83,6 @@ begin
 
 end;
 
+=======
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
 end.

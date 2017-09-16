@@ -4,12 +4,20 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+<<<<<<< HEAD
   Dialogs, ActnList,   ExtCtrls, ComCtrls, ToolWin, DB,
   fcStatusBar, Menus, cxGraphics, cxCustomData, cxStyles, cxTL, cxMaskEdit,
   APubUnit,AModelBrowser, cxSplitter, cxInplaceContainer,
   cxDBTL, cxControls, cxTLData,ImgList, cxPropertiesStore, MemDS, DBAccess,
   MSAccess, Wwintl, cxPC, ppDB, ppDBPipe, Grids, Wwdbigrd, Wwdbgrid,
   ppRelatv, ppProd, ppClass, ppReport, ppComm, ppEndUsr ;
+=======
+  Dialogs, AModelBrowser, Menus, ppRelatv, ppProd, ppClass, ppReport,
+  ppComm, ppEndUsr, ActnList, ComCtrls, ToolWin, DBAccess, MSAccess, ppDB,
+  DB, ppDBPipe, MemDS, cxGraphics, cxCustomData, cxStyles, cxTL,
+  cxMaskEdit, ExtCtrls, cxSplitter, cxInplaceContainer, cxDBTL, cxControls,
+  cxTLData, Grids, Wwdbigrd, Wwdbgrid, TeInputEditorForm;
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
 
 type
   TPOFrame = class(TAModelBrowserFrame)
@@ -67,6 +75,7 @@ type
     QTePurchaseaUpd_Date: TDateTimeField;
     QTePurchaseaMat_Desc: TStringField;
     QTePurchaseaMat_Name: TStringField;
+<<<<<<< HEAD
     QUser: TMSQuery;
     DUser: TDataSource;
     RUser: TppDBPipeline;
@@ -74,6 +83,10 @@ type
     procedure QTePurchaseaAfterPost(DataSet: TDataSet);
     procedure QTePurchaseAfterPost(DataSet: TDataSet);
     procedure ActionPrivewExecute(Sender: TObject);
+=======
+    procedure QTePurchaseaAfterPost(DataSet: TDataSet);
+    procedure QTePurchaseAfterPost(DataSet: TDataSet);
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
   private
     { Private declarations }
   public
@@ -103,6 +116,7 @@ begin
   QTePurchase.Refresh;
 end;
 
+<<<<<<< HEAD
 procedure TPOFrame.ActionPrivewExecute(Sender: TObject);
 begin
   with QUser do begin
@@ -118,6 +132,8 @@ begin
 
 end;
 
+=======
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
 Initialization
   RegisterClass(TPOFrame);
 finalization

@@ -26,7 +26,10 @@ uses
   MatNumber in 'MatNumber.pas' {MatClassFrame},
   DbMatNumberEditor in 'DbMatNumberEditor.pas' {DbMatNumberEditorForm},
   DbMatVendorEditor in 'DbMatVendorEditor.pas' {DbMatVendorEditorForm},
+<<<<<<< HEAD
   Unit4 in 'Unit4.pas' {Form4},
+=======
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
   TPO in 'TPO.pas' {POFrame},
   TePurchaseEditor in 'TePurchaseEditor.pas' {TePurchaseEditorForm},
   TePurchaseaEditor in 'TePurchaseaEditor.pas' {TePurchaseaEditorForm},
@@ -41,7 +44,12 @@ uses
   TPOutput in 'TPOutput.pas' {POutputFrame},
   TSOutput in 'TSOutput.pas' {SOutputFrame},
   TSInput in 'TSInput.pas' {SInputFrame},
+<<<<<<< HEAD
   TStore in 'TStore.pas' {StoreFrame};
+=======
+  Unit4 in 'Unit4.pas' {Form4},
+  TStore in 'TStore.pas' {Form5};
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
 
 {$R *.res}
 

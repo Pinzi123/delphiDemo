@@ -138,23 +138,38 @@ inherited POFrame: TPOFrame
       FieldName = 'Vnd_Sim'
       Size = 60
     end
+<<<<<<< HEAD
+=======
+    object QTePurchaseSum_Price: TFloatField
+      FieldName = 'Sum_Price'
+    end
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
     object QTePurchasePA: TStringField
       FieldName = 'PA'
       Size = 12
     end
+<<<<<<< HEAD
     object QTePurchaseSum_Price: TFloatField
       FieldName = 'Sum_Price'
     end
+=======
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
     object QTePurchasePur_Date: TDateTimeField
       FieldName = 'Pur_Date'
     end
     object QTePurchaseTemp_Status: TBooleanField
       FieldName = 'Temp_Status'
+<<<<<<< HEAD
       Visible = False
     end
     object QTePurchaseD_Count: TIntegerField
       FieldName = 'D_Count'
       Visible = False
+=======
+    end
+    object QTePurchaseD_Count: TIntegerField
+      FieldName = 'D_Count'
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
     end
     object QTePurchaseRemark: TStringField
       FieldName = 'Remark'
@@ -213,7 +228,11 @@ inherited POFrame: TPOFrame
     MasterSource = DTePurchase
     MasterFields = 'Pur_No;Vendor;Vnd_Sim'
     DetailFields = 'Pur_No;Vendor;Vnd_Sim'
+<<<<<<< HEAD
     Left = 57
+=======
+    Left = 56
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
     Top = 112
     ParamData = <
       item
@@ -236,7 +255,10 @@ inherited POFrame: TPOFrame
     end
     object QTePurchaseaPur_No: TStringField
       FieldName = 'Pur_No'
+<<<<<<< HEAD
       Visible = False
+=======
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
       Size = 12
     end
     object QTePurchaseaItem_No: TIntegerField
@@ -328,6 +350,7 @@ inherited POFrame: TPOFrame
     Left = 160
     Top = 112
   end
+<<<<<<< HEAD
   object QUser: TMSQuery
     Connection = ADMSystem.ADMConnection
     SQL.Strings = (
@@ -352,4 +375,6 @@ inherited POFrame: TPOFrame
     Left = 160
     Top = 152
   end
+=======
+>>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
 end
