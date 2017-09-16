@@ -1,0 +1,70 @@
+program Project1;
+
+uses
+  Controls,
+  Forms,
+  SysUtils,
+  Windows,
+  Messages,
+  AModelMain in '..\Model\AModelMain.pas' {AModelMainForm},
+  AData in 'AData.pas' {ADMSystem: TDataModule},
+  AModelBrowser in '..\Model\AModelBrowser.pas' {AModelBrowserFrame: TFrame},
+  AModelEditor in '..\Model\AModelEditor.pas' {AModelEditorForm},
+  APubSizeRun in '..\Model\APubSizeRun.pas' {APubSizeRunFrame: TFrame},
+  APubSelectList in '..\Model\APubSelectList.pas' {APubSelectListForm},
+  APubUnit in '..\Model\APubUnit.pas',
+  AhVisible in '..\Model\AhVisible.pas' {AhVisibleFrame: TFrame},
+  APubLogin in '..\Model\APubLogin.pas' {APubLoginForm},
+  Test in 'Test.pas' {TestForm},
+  ATest in 'ATest.pas' {Form1},
+  ATestEdit in 'ATestEdit.pas' {Form2},
+  ATestMy in 'ATestMy.pas' {Form3},
+  ATestEdit1 in 'ATestEdit1.pas' {GodownEditForm},
+  ATestEdit2 in 'ATestEdit2.pas' {GodownDetailEditForm},
+  MatClass in 'MatClass.pas' {MatClassFrame},
+  DbMatClassEditor in 'DbMatClassEditor.pas' {DbMatClassEditorForm},
+  MatNumber in 'MatNumber.pas' {MatClassFrame},
+  DbMatNumberEditor in 'DbMatNumberEditor.pas' {DbMatNumberEditorForm},
+  DbMatVendorEditor in 'DbMatVendorEditor.pas' {DbMatVendorEditorForm},
+  Unit4 in 'Unit4.pas' {Form4},
+  TPO in 'TPO.pas' {POFrame},
+  TePurchaseEditor in 'TePurchaseEditor.pas' {TePurchaseEditorForm},
+  TePurchaseaEditor in 'TePurchaseaEditor.pas' {TePurchaseaEditorForm},
+  TSO in 'TSO.pas' {SOFrame},
+  TeListEditor in 'TeListEditor.pas' {TeListEditorForm},
+  TeListaEditor in 'TeListaEditor.pas' {TeListaEditorForm},
+  TPRO in 'TPRO.pas' {PROFrame},
+  TSRO in 'TSRO.pas' {SROFrame},
+  TPInput in 'TPInput.pas' {PInputFrame},
+  TeInputEditorForm in 'TeInputEditorForm.pas' {TeInputEditorForm1},
+  TTeInputaEditor in 'TTeInputaEditor.pas' {TeInputaEditorForm},
+  TPOutput in 'TPOutput.pas' {POutputFrame},
+  TSOutput in 'TSOutput.pas' {SOutputFrame},
+  TSInput in 'TSInput.pas' {SInputFrame},
+  TStore in 'TStore.pas' {StoreFrame};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  CreateMutex(nil,True,Pchar(ExtractFileName(Application.ExeName)));
+  if GetLastError<>0 then
+  begin
+    Application.MessageBox('程序已運行！','錯誤信息',16);
+    Application.Terminate;
+  end
+  else
+  begin
+  Application.CreateForm(TADMSystem, ADMSystem);
+  Application.Run;
+  APubLoginForm:=TAPubLoginForm.Create(Application);
+   if APubLoginForm.ShowModal=mrOK then
+   begin
+     Application.CreateForm(TTestForm, TestForm);
+     Application.Run;
+   end
+  else
+    Application.Terminate;
+  end;
+
+end.

@@ -1,0 +1,63 @@
+object APubPropertColumnForm: TAPubPropertColumnForm
+  Left = 381
+  Top = 189
+  BorderStyle = bsDialog
+  Caption = #36984#25799#39023#31034#30340#27396#20301
+  ClientHeight = 324
+  ClientWidth = 463
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = #26032#32048#26126#39636
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 463
+    Height = 324
+    Align = alClient
+    BevelOuter = bvLowered
+    TabOrder = 0
+    object cxButton1: TcxButton
+      Left = 177
+      Top = 276
+      Width = 70
+      Height = 25
+      Caption = #38364#38281'&C'
+      Default = True
+      ModalResult = 1
+      TabOrder = 0
+    end
+    object RxCheckListBox1: TRxCheckListBox
+      Left = 17
+      Top = 19
+      Width = 426
+      Height = 238
+      CheckKind = ckCheckMarks
+      AutoScroll = False
+      Columns = 3
+      BiDiMode = bdLeftToRight
+      ParentBiDiMode = False
+      ItemHeight = 13
+      MultiSelect = True
+      TabOrder = 1
+      OnClickCheck = RxCheckListBox1ClickCheck
+      InternalVersion = 202
+    end
+    object CheckBox1: TCheckBox
+      Left = 40
+      Top = 264
+      Width = 97
+      Height = 17
+      Caption = #20840#36984
+      TabOrder = 2
+      OnClick = CheckBox1Click
+    end
+  end
+end
