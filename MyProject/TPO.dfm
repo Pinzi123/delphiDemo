@@ -213,11 +213,7 @@ inherited POFrame: TPOFrame
     MasterSource = DTePurchase
     MasterFields = 'Pur_No;Vendor;Vnd_Sim'
     DetailFields = 'Pur_No;Vendor;Vnd_Sim'
-<<<<<<< HEAD
     Left = 57
-=======
-    Left = 56
->>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
     Top = 112
     ParamData = <
       item
@@ -332,7 +328,6 @@ inherited POFrame: TPOFrame
     Left = 160
     Top = 112
   end
-<<<<<<< HEAD
   object QUser: TMSQuery
     Connection = ADMSystem.ADMConnection
     SQL.Strings = (
@@ -357,6 +352,4 @@ inherited POFrame: TPOFrame
     Left = 160
     Top = 152
   end
-=======
->>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
 end

@@ -41,11 +41,7 @@ uses AData;
 procedure TForm4.QTeMasterAfterPost(DataSet: TDataSet);
 begin
   inherited;
-<<<<<<< HEAD
   QTeMaster.Refresh;
-=======
-  QTeMaster.RefreshRecord;
->>>>>>> 5a02f35f7a1e84a3242aa79d4630d6ffb1184a15
 end;
 
 procedure TForm4.QTeAAfterPost(DataSet: TDataSet);
