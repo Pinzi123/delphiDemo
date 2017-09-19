@@ -26,7 +26,7 @@ uses
   MatNumber in 'MatNumber.pas' {MatClassFrame},
   DbMatNumberEditor in 'DbMatNumberEditor.pas' {DbMatNumberEditorForm},
   DbMatVendorEditor in 'DbMatVendorEditor.pas' {DbMatVendorEditorForm},
-  Unit4 in 'Unit4.pas' {Form4},
+  Unit4 in 'Unit4.pas' {Form4: TAModelBrowserFrame},
   TPO in 'TPO.pas' {POFrame},
   TePurchaseEditor in 'TePurchaseEditor.pas' {TePurchaseEditorForm},
   TePurchaseaEditor in 'TePurchaseaEditor.pas' {TePurchaseaEditorForm},

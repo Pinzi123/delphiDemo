@@ -38,8 +38,8 @@ inherited DhListaEditorForm: TDhListaEditorForm
       Caption = 'Mat_Desc'
     end
     object Label10: TLabel
-      Left = 17
-      Top = 93
+      Left = 259
+      Top = 114
       Width = 90
       Height = 13
       Alignment = taRightJustify
@@ -48,7 +48,7 @@ inherited DhListaEditorForm: TDhListaEditorForm
     end
     object Label11: TLabel
       Left = 260
-      Top = 93
+      Top = 92
       Width = 90
       Height = 13
       Alignment = taRightJustify
@@ -110,8 +110,8 @@ inherited DhListaEditorForm: TDhListaEditorForm
       Width = 377
     end
     object cxDBTextEdit8: TcxDBTextEdit
-      Left = 110
-      Top = 89
+      Left = 352
+      Top = 110
       DataBinding.DataField = 'Req_Qty'
       DataBinding.DataSource = EditData
       TabOrder = 3
@@ -128,7 +128,7 @@ inherited DhListaEditorForm: TDhListaEditorForm
     end
     object cxDBTextEdit10: TcxDBTextEdit
       Left = 110
-      Top = 111
+      Top = 110
       DataBinding.DataField = 'List_Qty'
       DataBinding.DataSource = EditData
       Enabled = False

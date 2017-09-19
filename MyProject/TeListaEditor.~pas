@@ -131,23 +131,23 @@ begin
     ShowWarning('項次不能為空');
     cxDBButtonEdit3.SetFocus;
     end
-    else if(MaxNum=0) then
-    begin
-       TempString:='select distinct a.Mat_No,Mat_Name,StoNumber,Mat_Desc,Vendor from (select Mat_No,SUM(Sign_Int*Acc_Qty) as StoNumber from Te_Storea group by Mat_No) as a,dbo.Te_Storea where a.Mat_No=Te_Storea.Mat_No and a.Mat_No=''%S''';
-       QAPubDataOpen(Format(TempString,[EditData.DataSet.FieldByName('Mat_No').AsString]));
-       if ADMSystem.QAPubData.RecordCount=1 then
-          begin
-             MaxNum := StrToInt(ADMSystem.QAPubData.FieldByName('StoNumber').AsString);
-          end
-       else
-         ShowWarning('該材料倉庫數量為0');
-       ADMSystem.QAPubData.Close;
-    end
-    else if (StrToInt(cxDBTextEdit8.Text)>MaxNum) then
-    begin
-       ShowWarning('庫存只有'+IntToStr(MaxNum));
-       EditData.DataSet.FieldByName('Req_Qty').AsString := '0';
-    end
+//    else if(MaxNum=0) then
+//    begin
+//       TempString:='select distinct a.Mat_No,Mat_Name,StoNumber,Mat_Desc,Vendor from (select Mat_No,SUM(Sign_Int*Acc_Qty) as StoNumber from Te_Storea group by Mat_No) as a,dbo.Te_Storea where a.Mat_No=Te_Storea.Mat_No and a.Mat_No=''%S''';
+//       QAPubDataOpen(Format(TempString,[EditData.DataSet.FieldByName('Mat_No').AsString]));
+//       if ADMSystem.QAPubData.RecordCount=1 then
+//          begin
+//             MaxNum := StrToInt(ADMSystem.QAPubData.FieldByName('StoNumber').AsString);
+//          end
+//       else
+//         ShowWarning('該材料倉庫數量為0');
+//       ADMSystem.QAPubData.Close;
+//    end
+//    else if (StrToInt(cxDBTextEdit8.Text)>MaxNum) then
+//    begin
+//       ShowWarning('庫存只有'+IntToStr(MaxNum));
+//       EditData.DataSet.FieldByName('Req_Qty').AsString := '0';
+//    end
     else
      inherited;
 end;
