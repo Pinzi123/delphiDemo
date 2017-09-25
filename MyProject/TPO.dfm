@@ -236,7 +236,6 @@ inherited POFrame: TPOFrame
     end
     object QTePurchaseaPur_No: TStringField
       FieldName = 'Pur_No'
-      Visible = False
       Size = 12
     end
     object QTePurchaseaItem_No: TIntegerField
@@ -250,14 +249,6 @@ inherited POFrame: TPOFrame
       FieldName = 'Mat_No'
       Size = 14
     end
-    object QTePurchaseaMat_Name: TStringField
-      FieldName = 'Mat_Name'
-      Size = 50
-    end
-    object QTePurchaseaMat_Desc: TStringField
-      FieldName = 'Mat_Desc'
-      Size = 50
-    end
     object QTePurchaseaVendor: TStringField
       FieldName = 'Vendor'
       Size = 12
@@ -265,6 +256,10 @@ inherited POFrame: TPOFrame
     object QTePurchaseaVnd_Sim: TStringField
       FieldName = 'Vnd_Sim'
       Size = 60
+    end
+    object QTePurchaseaUnit: TStringField
+      FieldName = 'Unit'
+      Size = 8
     end
     object QTePurchaseaPrice: TFloatField
       FieldName = 'Price'
@@ -304,6 +299,14 @@ inherited POFrame: TPOFrame
     end
     object QTePurchaseaUpd_Date: TDateTimeField
       FieldName = 'Upd_Date'
+    end
+    object QTePurchaseaMat_Desc: TStringField
+      FieldName = 'Mat_Desc'
+      Size = 50
+    end
+    object QTePurchaseaMat_Name: TStringField
+      FieldName = 'Mat_Name'
+      Size = 50
     end
   end
   object DTePurchase: TDataSource

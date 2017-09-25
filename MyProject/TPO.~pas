@@ -8,7 +8,8 @@ uses
   fcStatusBar, Menus, cxGraphics, cxCustomData, cxStyles, cxTL, cxMaskEdit,
   APubUnit,AModelBrowser, cxSplitter, cxInplaceContainer,
   cxDBTL, cxControls, cxTLData,ImgList, cxPropertiesStore, MemDS, DBAccess,
-  MSAccess, Wwintl, cxPC ;
+  MSAccess, Wwintl, cxPC, ppDB, ppDBPipe, Grids, Wwdbigrd, Wwdbgrid,
+  ppRelatv, ppProd, ppClass, ppReport, ppComm, ppEndUsr ;
 
 type
   TPOFrame = class(TAModelBrowserFrame)
@@ -52,7 +53,6 @@ type
     QTePurchaseaMat_No: TStringField;
     QTePurchaseaVendor: TStringField;
     QTePurchaseaVnd_Sim: TStringField;
-    QTePurchaseaPrice: TFloatField;
     QTePurchaseaPur_Qty: TFloatField;
     QTePurchaseaReq_Pur_Qty: TFloatField;
     QTePurchaseaIn_Qty: TFloatField;
@@ -70,6 +70,8 @@ type
     DUser: TDataSource;
     RUser: TppDBPipeline;
     QUserUserName: TStringField;
+    QTePurchaseaUnit: TStringField;
+    QTePurchaseaPrice: TFloatField;
     procedure QTePurchaseaAfterPost(DataSet: TDataSet);
     procedure QTePurchaseAfterPost(DataSet: TDataSet);
     procedure ActionPrivewExecute(Sender: TObject);
@@ -104,7 +106,15 @@ end;
 
 procedure TPOFrame.ActionPrivewExecute(Sender: TObject);
 begin
-  QU
+  with QUser do begin
+    Close;
+    with SQL do begin
+      Clear;
+      Add('SELECT UserName=''' + UserName + '''');
+    end;
+    Open;
+  end;
+
   inherited;
 
 end;

@@ -15,7 +15,7 @@ uses
   APubUnit in '..\Model\APubUnit.pas',
   AhVisible in '..\Model\AhVisible.pas' {AhVisibleFrame: TFrame},
   APubLogin in '..\Model\APubLogin.pas' {APubLoginForm},
-  Test in 'Test.pas' {TestForm},        
+  Test in 'Test.pas' {TestForm},
   ATest in 'ATest.pas' {Form1},
   ATestEdit in 'ATestEdit.pas' {Form2},
   ATestMy in 'ATestMy.pas' {Form3},
@@ -26,7 +26,7 @@ uses
   MatNumber in 'MatNumber.pas' {MatClassFrame},
   DbMatNumberEditor in 'DbMatNumberEditor.pas' {DbMatNumberEditorForm},
   DbMatVendorEditor in 'DbMatVendorEditor.pas' {DbMatVendorEditorForm},
-  Unit4 in 'Unit4.pas' {Form4: TAModelBrowserFrame},
+  Unit4 in 'Unit4.pas' {Form4},
   TPO in 'TPO.pas' {POFrame},
   TePurchaseEditor in 'TePurchaseEditor.pas' {TePurchaseEditorForm},
   TePurchaseaEditor in 'TePurchaseaEditor.pas' {TePurchaseaEditorForm},
@@ -41,7 +41,8 @@ uses
   TPOutput in 'TPOutput.pas' {POutputFrame},
   TSOutput in 'TSOutput.pas' {SOutputFrame},
   TSInput in 'TSInput.pas' {SInputFrame},
-  TStore in 'TStore.pas' {StoreFrame};
+  TStore in 'TStore.pas' {StoreFrame},
+  TStoreCheck in 'TStoreCheck.pas' {StoreCheckFrame};
 
 {$R *.res}
 

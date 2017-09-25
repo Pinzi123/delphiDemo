@@ -1,15 +1,15 @@
 inherited DhListaEditorForm: TDhListaEditorForm
-  Left = 130
-  Top = 103
+  Left = 402
+  Top = 292
   Caption = 'DhListaEditorForm'
-  ClientHeight = 239
+  ClientHeight = 267
   ClientWidth = 560
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 560
-    Height = 239
+    Height = 267
     object Label1: TLabel
       Left = 259
       Top = 49
@@ -39,7 +39,7 @@ inherited DhListaEditorForm: TDhListaEditorForm
     end
     object Label10: TLabel
       Left = 17
-      Top = 93
+      Top = 117
       Width = 90
       Height = 13
       Alignment = taRightJustify
@@ -47,8 +47,8 @@ inherited DhListaEditorForm: TDhListaEditorForm
       Caption = 'Req_Qty'
     end
     object Label11: TLabel
-      Left = 260
-      Top = 93
+      Left = 259
+      Top = 116
       Width = 90
       Height = 13
       Alignment = taRightJustify
@@ -57,7 +57,7 @@ inherited DhListaEditorForm: TDhListaEditorForm
     end
     object Label12: TLabel
       Left = 17
-      Top = 115
+      Top = 139
       Width = 90
       Height = 13
       Alignment = taRightJustify
@@ -66,7 +66,7 @@ inherited DhListaEditorForm: TDhListaEditorForm
     end
     object Label14: TLabel
       Left = 19
-      Top = 138
+      Top = 162
       Width = 90
       Height = 13
       Alignment = taRightJustify
@@ -91,6 +91,33 @@ inherited DhListaEditorForm: TDhListaEditorForm
       AutoSize = False
       Caption = 'Mat_Name'
     end
+    object Label4: TLabel
+      Left = 257
+      Top = 92
+      Width = 90
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Unit'
+    end
+    object Label6: TLabel
+      Left = 15
+      Top = 92
+      Width = 90
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Price'
+    end
+    object Label7: TLabel
+      Left = 260
+      Top = 138
+      Width = 90
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'LA'
+    end
     object cxDBTextEdit2: TcxDBTextEdit
       Left = 110
       Top = 22
@@ -111,7 +138,7 @@ inherited DhListaEditorForm: TDhListaEditorForm
     end
     object cxDBTextEdit8: TcxDBTextEdit
       Left = 110
-      Top = 89
+      Top = 113
       DataBinding.DataField = 'Req_Qty'
       DataBinding.DataSource = EditData
       TabOrder = 3
@@ -119,7 +146,7 @@ inherited DhListaEditorForm: TDhListaEditorForm
     end
     object cxDBTextEdit9: TcxDBTextEdit
       Left = 352
-      Top = 89
+      Top = 113
       DataBinding.DataField = 'Out_Qty'
       DataBinding.DataSource = EditData
       Enabled = False
@@ -128,7 +155,7 @@ inherited DhListaEditorForm: TDhListaEditorForm
     end
     object cxDBTextEdit10: TcxDBTextEdit
       Left = 110
-      Top = 111
+      Top = 135
       DataBinding.DataField = 'List_Qty'
       DataBinding.DataSource = EditData
       Enabled = False
@@ -137,7 +164,7 @@ inherited DhListaEditorForm: TDhListaEditorForm
     end
     object cxDBTextEdit12: TcxDBTextEdit
       Left = 110
-      Top = 133
+      Top = 157
       DataBinding.DataField = 'Remark'
       DataBinding.DataSource = EditData
       TabOrder = 7
@@ -176,12 +203,45 @@ inherited DhListaEditorForm: TDhListaEditorForm
       TabOrder = 8
       Width = 135
     end
+    object cxDBTextEdit5: TcxDBTextEdit
+      Left = 352
+      Top = 89
+      DataBinding.DataField = 'Unit'
+      DataBinding.DataSource = EditData
+      Enabled = False
+      TabOrder = 9
+      Width = 135
+    end
+    object cxDBTextEdit6: TcxDBTextEdit
+      Left = 110
+      Top = 89
+      DataBinding.DataField = 'Price'
+      DataBinding.DataSource = EditData
+      Enabled = False
+      TabOrder = 10
+      Width = 135
+    end
+    object cxDBButtonEdit1: TcxDBButtonEdit
+      Left = 352
+      Top = 135
+      DataBinding.DataField = 'Mat_No'
+      DataBinding.DataSource = EditData
+      Properties.Buttons = <
+        item
+          Default = True
+          Kind = bkEllipsis
+        end>
+      Properties.OnButtonClick = cxDBButtonEdit3PropertiesButtonClick
+      Style.ButtonTransparency = ebtHideUnselected
+      TabOrder = 11
+      Width = 135
+    end
   end
   inherited cxButton1: TcxButton
-    Top = 180
+    Top = 204
   end
   inherited cxButton2: TcxButton
     Left = 300
-    Top = 180
+    Top = 204
   end
 end

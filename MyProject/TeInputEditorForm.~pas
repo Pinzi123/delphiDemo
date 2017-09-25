@@ -28,6 +28,8 @@ type
     cxDBTextEdit2: TcxDBTextEdit;
     Label8: TLabel;
     cxDBTextEdit3: TcxDBTextEdit;
+    Label9: TLabel;
+    cxDBTextEdit4: TcxDBTextEdit;
     procedure cxDBButtonEdit2PropertiesButtonClick(Sender: TObject;
       AButtonIndex: Integer);
     procedure cxDBButtonEdit1PropertiesButtonClick(Sender: TObject;

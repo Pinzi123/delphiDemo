@@ -266,9 +266,6 @@ inherited POFrame: TPOFrame
       FieldName = 'Vnd_Sim'
       Size = 60
     end
-    object QTePurchaseaPrice: TFloatField
-      FieldName = 'Price'
-    end
     object QTePurchaseaPur_Qty: TFloatField
       FieldName = 'Pur_Qty'
     end
@@ -304,6 +301,13 @@ inherited POFrame: TPOFrame
     end
     object QTePurchaseaUpd_Date: TDateTimeField
       FieldName = 'Upd_Date'
+    end
+    object QTePurchaseaUnit: TStringField
+      FieldName = 'Unit'
+      Size = 8
+    end
+    object QTePurchaseaPrice: TFloatField
+      FieldName = 'Price'
     end
   end
   object DTePurchase: TDataSource

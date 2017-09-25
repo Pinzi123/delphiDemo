@@ -51,6 +51,9 @@ type
     QTeMasterRCheck_Date: TDateTimeField;
     QTeMasterRCheck: TBooleanField;
     QTeMasterTemp_Status: TBooleanField;
+    QTeAUnit: TStringField;
+    QTeAPrice: TFloatField;
+    QTeMasterLA: TStringField;
   private
     { Private declarations }
   public

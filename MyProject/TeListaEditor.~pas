@@ -28,6 +28,12 @@ type
     cxDBTextEdit1: TcxDBTextEdit;
     cxDBTextEdit4: TcxDBTextEdit;
     Label3: TLabel;
+    Label4: TLabel;
+    cxDBTextEdit5: TcxDBTextEdit;
+    cxDBTextEdit6: TcxDBTextEdit;
+    Label6: TLabel;
+    cxDBButtonEdit1: TcxDBButtonEdit;
+    Label7: TLabel;
     procedure cxDBButtonEdit2PropertiesButtonClick(Sender: TObject;
       AButtonIndex: Integer);
     procedure cxDBButtonEdit3PropertiesButtonClick(Sender: TObject;
@@ -79,7 +85,7 @@ begin
 if EditData.State in [dsInsert,dsEdit] then
    begin
 
-     TempString:='select distinct a.Mat_No,Mat_Name,StoNumber,Mat_Desc,Vendor from (select Mat_No,SUM(Sign_Int*Acc_Qty) as StoNumber from Te_Storea group by Mat_No) as a,dbo.Te_Storea where a.Mat_No=Te_Storea.Mat_No';
+     TempString:='select distinct a.Mat_No,Mat_Name,StoNumber,Mat_Desc,Unit,Price,Vendor from (select Mat_No,SUM(Sign_Int*Acc_Qty) as StoNumber from Te_Storea group by Mat_No) as a,dbo.Te_Storea where a.Mat_No=Te_Storea.Mat_No';
      if SelectData(TempString) then
         begin
            CheckValue:=False;
@@ -88,6 +94,8 @@ if EditData.State in [dsInsert,dsEdit] then
            EditData.DataSet.FieldByName('Mat_Desc').AsString:=ADMSystem.QAPubData.FieldByName('Mat_Desc').AsString;
            EditData.DataSet.FieldByName('Mat_Name').AsString:=ADMSystem.QAPubData.FieldByName('Mat_Name').AsString;
            EditData.DataSet.FieldByName('Vendor').AsString:=ADMSystem.QAPubData.FieldByName('Vendor').AsString;
+            EditData.DataSet.FieldByName('Unit').AsString:=ADMSystem.QAPubData.FieldByName('Unit').AsString;
+            EditData.DataSet.FieldByName('Price').AsString:=ADMSystem.QAPubData.FieldByName('Price').AsString;
            MaxNum := StrToInt(ADMSystem.QAPubData.FieldByName('StoNumber').AsString);
            CheckValue:=True;
         end;

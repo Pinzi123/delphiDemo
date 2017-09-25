@@ -3,8 +3,8 @@ inherited StoreFrame: TStoreFrame
     Tag = 1
     Left = 0
     Top = 39
-    Width = 845
-    Height = 546
+    Width = 854
+    Height = 472
     HelpType = htKeyword
     Selected.Strings = (
       'Pur_No'#9'17'#9'Pur_No'
@@ -45,17 +45,37 @@ inherited StoreFrame: TStoreFrame
   object QTePurchase: TMSQuery
     Connection = ADMSystem.ADMConnection
     SQL.Strings = (
+      'DECLARE @Check_Date  datetime'
+      'SET @Check_Date = :Check_Date'
       
-        'select Db_MatNumber.Mat_No,Mat_Name,Mat_Desc,a.Vendor,Vnd_Sim,St' +
-        'oNumber '
-      ' from Db_MatNumber,Bb_Vendor,'
-      ' (select Mat_No,Vendor,SUM(Sign_Int*Acc_Qty) as StoNumber '
-      ' from Te_Storea'
-      ' group by Mat_No,Vendor) as a'
-      ' where a.Mat_No = Db_MatNumber.Mat_No'
-      '  and a.Vendor = Bb_Vendor.Vendor')
+        'select Db_MatNumber.Mat_No,Db_MatNumber.Mat_Name,Mat_Desc,Bb_Ven' +
+        'dor.Vendor,Bb_Vendor.Vnd_Sim, StoNumber'
+      'from Db_MatNumber,Bb_Vendor,'
+      '(select a.Mat_No,a.Vendor, '
+      
+        '((CASE WHEN Store_Eqty IS NULL THEN 0 ELSE Store_Eqty END) +  (C' +
+        'ASE WHEN Number IS NULL THEN 0 ELSE Number END)) as  StoNumber'
+      ' from '
+      '     (select Mat_No,Vendor,SUM(Sign_Int*Acc_Qty) as Number'
+      '      from '
+      '          (select * '
+      '           from Te_Storea  '
+      '           where Create_Date < GETDATE()'
+      '                 and Create_Date > 0 ) as a'
+      '           group by Vendor,Mat_No) as a'
+      
+        ' FULL JOIN (select * from Te_StoreCheckTemp where Check_Date = @' +
+        'Check_Date) as checkP'
+      '       ON checkP.Mat_No = a.Mat_NO) as store'
+      ' where store.Mat_No = Db_MatNumber.Mat_No'
+      '       and store.Vendor = Bb_Vendor.Vendor')
     Left = 56
     Top = 72
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'Check_Date'
+      end>
     object QTePurchaseSelected: TBooleanField
       DisplayWidth = 5
       FieldKind = fkCalculated
@@ -78,7 +98,7 @@ inherited StoreFrame: TStoreFrame
     object QTePurchaseVendor: TStringField
       FieldName = 'Vendor'
       ReadOnly = True
-      Size = 12
+      Size = 50
     end
     object QTePurchaseVnd_Sim: TStringField
       FieldName = 'Vnd_Sim'

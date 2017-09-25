@@ -33,6 +33,8 @@ type
     cxDBTextEdit6: TcxDBTextEdit;
     Label11: TLabel;
     cxDBTextEdit7: TcxDBTextEdit;
+    Label12: TLabel;
+    cxDBTextEdit8: TcxDBTextEdit;
     procedure cxDBButtonEdit3PropertiesButtonClick(Sender: TObject;
       AButtonIndex: Integer);
     procedure cxButton1Click(Sender: TObject);
@@ -56,7 +58,7 @@ procedure TTePurchaseaEditorForm.cxDBButtonEdit3PropertiesButtonClick(
 begin
 if EditData.State in [dsInsert,dsEdit] then
    begin
-     TempString:='select Db_MatVendor.Mat_No,Mat_Desc,Mat_Name from Db_MatVendor,Db_MatNumber where Db_MatVendor.Mat_No = Db_MatNumber.Mat_No and Db_MatVendor.Vendor = ''' + cxDBButtonEdit2.Text + '''';
+     TempString:='select Db_MatVendor.Mat_No,Mat_Desc,Mat_Name,Chn_Unit from Db_MatVendor,Db_MatNumber where Db_MatVendor.Mat_No = Db_MatNumber.Mat_No and Db_MatVendor.Vendor = ''' + cxDBButtonEdit2.Text + '''';
      if SelectData(TempString) then
         begin
            CheckValue:=False;
@@ -64,8 +66,8 @@ if EditData.State in [dsInsert,dsEdit] then
            EditData.DataSet.FieldByName('Mat_No').ConstraintErrorMessage:='';
            EditData.DataSet.FieldByName('Mat_Desc').AsString:=ADMSystem.QAPubData.FieldByName('Mat_Desc').AsString;
            EditData.DataSet.FieldByName('Mat_Desc').ConstraintErrorMessage:='';
-            EditData.DataSet.FieldByName('Mat_Name').AsString:=ADMSystem.QAPubData.FieldByName('Mat_Name').AsString;
-           EditData.DataSet.FieldByName('Mat_Name').ConstraintErrorMessage:='';
+           EditData.DataSet.FieldByName('Mat_Name').AsString:=ADMSystem.QAPubData.FieldByName('Mat_Name').AsString;
+           EditData.DataSet.FieldByName('Unit').AsString:=ADMSystem.QAPubData.FieldByName('Chn_Unit').AsString;
            CheckValue:=True;
         end;
      QAPubDataClose;

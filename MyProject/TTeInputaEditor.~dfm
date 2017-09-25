@@ -18,6 +18,15 @@ inherited TeInputaEditorForm: TTeInputaEditorForm
     AutoSize = False
     Caption = 'Pay_Qty'
   end
+  object Label7: TLabel [1]
+    Left = 15
+    Top = 111
+    Width = 90
+    Height = 13
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = 'Mat_No'
+  end
   inherited Panel1: TPanel
     Width = 551
     Height = 251
@@ -68,7 +77,7 @@ inherited TeInputaEditorForm: TTeInputaEditorForm
     end
     object Label18: TLabel
       Left = 255
-      Top = 135
+      Top = 158
       Width = 90
       Height = 13
       Alignment = taRightJustify
@@ -77,7 +86,7 @@ inherited TeInputaEditorForm: TTeInputaEditorForm
     end
     object Label17: TLabel
       Left = 15
-      Top = 136
+      Top = 159
       Width = 90
       Height = 13
       Alignment = taRightJustify
@@ -86,7 +95,7 @@ inherited TeInputaEditorForm: TTeInputaEditorForm
     end
     object Label23: TLabel
       Left = 15
-      Top = 153
+      Top = 176
       Width = 90
       Height = 13
       Alignment = taRightJustify
@@ -104,7 +113,7 @@ inherited TeInputaEditorForm: TTeInputaEditorForm
     end
     object Label19: TLabel
       Left = 255
-      Top = 112
+      Top = 135
       Width = 90
       Height = 13
       Alignment = taRightJustify
@@ -121,13 +130,22 @@ inherited TeInputaEditorForm: TTeInputaEditorForm
       Caption = 'Mat_Name'
     end
     object Label5: TLabel
-      Left = 17
-      Top = 112
+      Left = 15
+      Top = 135
       Width = 90
       Height = 13
       Alignment = taRightJustify
       AutoSize = False
       Caption = 'Acc_Qty'
+    end
+    object Label11: TLabel
+      Left = 15
+      Top = 112
+      Width = 90
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Unit'
     end
     object TcxDBTextEdit
       Left = 109
@@ -183,7 +201,7 @@ inherited TeInputaEditorForm: TTeInputaEditorForm
     end
     object cxDBTextEdit12: TcxDBTextEdit
       Left = 349
-      Top = 130
+      Top = 153
       DataBinding.DataField = 'UnQua_Qty'
       DataBinding.DataSource = EditData
       TabOrder = 5
@@ -191,7 +209,7 @@ inherited TeInputaEditorForm: TTeInputaEditorForm
     end
     object cxDBTextEdit11: TcxDBTextEdit
       Left = 109
-      Top = 130
+      Top = 153
       DataBinding.DataField = 'Qua_Qty'
       DataBinding.DataSource = EditData
       TabOrder = 6
@@ -199,7 +217,7 @@ inherited TeInputaEditorForm: TTeInputaEditorForm
     end
     object cxDBTextEdit15: TcxDBTextEdit
       Left = 109
-      Top = 153
+      Top = 176
       DataBinding.DataField = 'Remark'
       DataBinding.DataSource = EditData
       TabOrder = 7
@@ -217,7 +235,7 @@ inherited TeInputaEditorForm: TTeInputaEditorForm
     object cxDBTextEdit8: TcxDBTextEdit
       Tag = 1
       Left = 349
-      Top = 108
+      Top = 131
       DataBinding.DataField = 'Refuse_Qty'
       DataBinding.DataSource = EditData
       TabOrder = 9
@@ -240,13 +258,23 @@ inherited TeInputaEditorForm: TTeInputaEditorForm
     Left = 310
     Top = 199
   end
-  object cxDBTextEdit10: TcxDBTextEdit [5]
+  object cxDBTextEdit10: TcxDBTextEdit [6]
     Left = 109
-    Top = 108
+    Top = 130
     DataBinding.DataField = 'Acc_Qty'
     DataBinding.DataSource = EditData
     Properties.ValidateOnEnter = True
     TabOrder = 4
+    OnExit = cxDBTextEdit10PropertiesEditValueChanged
+    Width = 135
+  end
+  object cxDBTextEdit1: TcxDBTextEdit [7]
+    Left = 109
+    Top = 107
+    DataBinding.DataField = 'Unit'
+    DataBinding.DataSource = EditData
+    Enabled = False
+    TabOrder = 5
     Width = 135
   end
 end

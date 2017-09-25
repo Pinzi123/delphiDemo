@@ -47,12 +47,17 @@ type
     QTePurchaseUpd_Date: TDateTimeField;
     QTePurchaseModify_Date: TDateTimeField;
     QTePurchaseFax_Date: TDateTimeField;
+    QUser: TMSQuery;
+    DUser: TDataSource;
+    RUser: TppDBPipeline;
+    QUserUserName: TStringField;
     QTePurchaseaPur_No: TStringField;
     QTePurchaseaItem_No: TIntegerField;
     QTePurchaseaConn_No: TStringField;
     QTePurchaseaMat_No: TStringField;
     QTePurchaseaVendor: TStringField;
     QTePurchaseaVnd_Sim: TStringField;
+    QTePurchaseaUnit: TStringField;
     QTePurchaseaPrice: TFloatField;
     QTePurchaseaPur_Qty: TFloatField;
     QTePurchaseaReq_Pur_Qty: TFloatField;
@@ -67,10 +72,6 @@ type
     QTePurchaseaUpd_Date: TDateTimeField;
     QTePurchaseaMat_Desc: TStringField;
     QTePurchaseaMat_Name: TStringField;
-    QUser: TMSQuery;
-    DUser: TDataSource;
-    RUser: TppDBPipeline;
-    QUserUserName: TStringField;
     procedure QTePurchaseaAfterPost(DataSet: TDataSet);
     procedure QTePurchaseAfterPost(DataSet: TDataSet);
     procedure ActionPrivewExecute(Sender: TObject);

@@ -14,26 +14,6 @@ uses
 type
   TPInputFrame = class(TForm4)
     ActionList1: TActionList;
-    QTeAStr_Auto: TStringField;
-    QTeAList_No: TStringField;
-    QTeAPur_No: TStringField;
-    QTeAItem_No: TIntegerField;
-    QTeAMat_No: TStringField;
-    QTeAVendor: TStringField;
-    QTeAVnd_Qty: TFloatField;
-    QTeAPay_Qty: TFloatField;
-    QTeAPrice: TFloatField;
-    QTeAQua_Qty: TFloatField;
-    QTeAUnQua_Qty: TFloatField;
-    QTeARefuse_Qty: TFloatField;
-    QTeARemark: TStringField;
-    QTeACreate_Name: TStringField;
-    QTeACreate_Date: TDateTimeField;
-    QTeAUpd_Name: TStringField;
-    QTeAUpd_Date: TDateTimeField;
-    QTeAMat_Desc: TStringField;
-    QTeAMat_Name: TStringField;
-    QTeAAcc_Qty: TFloatField;
     QTeMasterStr_Auto: TGuidField;
     QTeMasterGive_Date: TDateTimeField;
     QTeMasterMove_Date: TDateTimeField;
@@ -52,6 +32,30 @@ type
     QTeMasterUpd_Date: TDateTimeField;
     QTeMasterDepart_Name: TStringField;
     QTeMasterPA: TStringField;
+    QTeAStr_Auto: TGuidField;
+    QTeAList_No: TStringField;
+    QTeAPur_No: TStringField;
+    QTeAItem_No: TIntegerField;
+    QTeAMat_No: TStringField;
+    QTeAVendor: TStringField;
+    QTeAVnd_Qty: TFloatField;
+    QTeAPay_Qty: TFloatField;
+    QTeAPrice: TFloatField;
+    QTeASign_Int: TIntegerField;
+    QTeAQua_Qty: TFloatField;
+    QTeAUnQua_Qty: TFloatField;
+    QTeARefuse_Qty: TFloatField;
+    QTeARemark: TStringField;
+    QTeACreate_Name: TStringField;
+    QTeACreate_Date: TDateTimeField;
+    QTeAUpd_Name: TStringField;
+    QTeAUpd_Date: TDateTimeField;
+    QTeAMat_Desc: TStringField;
+    QTeAMat_Name: TStringField;
+    QTeAAcc_Qty: TFloatField;
+    QTeAUnit: TStringField;
+    QTeMasterLA: TStringField;
+    QTeAVnd_Sim: TStringField;
   private
     { Private declarations }
   public

@@ -9,7 +9,7 @@ inherited Form4: TForm4
       item
         Control = ToolBar1
         ImageIndex = -1
-        MinHeight = 20
+        MinHeight = 35
         Width = 866
       end>
     inherited ToolBar1: TToolBar
@@ -19,9 +19,9 @@ inherited Form4: TForm4
   object wwDBGrid1: TwwDBGrid [1]
     Tag = 1
     Left = 0
-    Top = 24
+    Top = 39
     Width = 870
-    Height = 416
+    Height = 401
     HelpType = htKeyword
     Selected.Strings = (
       'Pur_No'#9'17'#9'Pur_No'
@@ -144,5 +144,29 @@ inherited Form4: TForm4
     UserName = 'RTeA'
     Left = 160
     Top = 112
+  end
+  object QUser: TMSQuery
+    Connection = ADMSystem.ADMConnection
+    SQL.Strings = (
+      'SELECT UserName='#39#35069#34920#20154#39)
+    BeforeOpen = QUserBeforeOpen
+    Left = 56
+    Top = 152
+    object QUserUserName: TStringField
+      FieldName = 'UserName'
+      ReadOnly = True
+      Size = 6
+    end
+  end
+  object DUser: TDataSource
+    DataSet = QUser
+    Left = 104
+    Top = 152
+  end
+  object RUser: TppDBPipeline
+    DataSource = DUser
+    UserName = 'RUser'
+    Left = 160
+    Top = 152
   end
 end

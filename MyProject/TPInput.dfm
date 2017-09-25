@@ -1,7 +1,7 @@
 inherited PInputFrame: TPInputFrame
   Height = 635
   inherited wwDBGrid1: TwwDBGrid
-    Height = 396
+    Height = 411
   end
   inherited wwDBGrid2: TwwDBGrid
     Top = 435
@@ -9,7 +9,6 @@ inherited PInputFrame: TPInputFrame
   inherited QTeMaster: TMSQuery
     SQL.Strings = (
       'select * FROM [CNData].[dbo].[Te_Store] where Pur_No <> '#39#39)
-    Filter = 'Pur'
     object QTeMasterStr_Auto: TGuidField
       FieldName = 'Str_Auto'
       FixedChar = True
@@ -77,10 +76,16 @@ inherited PInputFrame: TPInputFrame
     object QTeMasterUpd_Date: TDateTimeField
       FieldName = 'Upd_Date'
     end
+    object QTeMasterLA: TStringField
+      FieldName = 'LA'
+      Size = 12
+    end
   end
   inherited QTeA: TMSQuery
     SQL.Strings = (
-      'select * FROM [CNData].[dbo].[Te_Storea]')
+      
+        'select Te_Storea.*,Bb_Vendor.Vnd_Sim  FROM Te_Storea left join d' +
+        'bo.Bb_Vendor on Te_Storea.Vendor = Bb_Vendor.Vendor')
     MasterFields = 'Str_Auto;Pur_No'
     DetailFields = 'Str_Auto;Pur_No'
     ParamData = <
@@ -92,23 +97,21 @@ inherited PInputFrame: TPInputFrame
         DataType = ftString
         Name = 'Pur_No'
       end>
-    object QTeAStr_Auto: TStringField
+    object QTeAStr_Auto: TGuidField
       FieldName = 'Str_Auto'
-      Visible = False
+      FixedChar = True
       Size = 38
-    end
-    object QTeAItem_No: TIntegerField
-      FieldName = 'Item_No'
     end
     object QTeAList_No: TStringField
       FieldName = 'List_No'
-      Visible = False
       Size = 38
     end
     object QTeAPur_No: TStringField
       FieldName = 'Pur_No'
-      Visible = False
       Size = 38
+    end
+    object QTeAItem_No: TIntegerField
+      FieldName = 'Item_No'
     end
     object QTeAMat_No: TStringField
       FieldName = 'Mat_No'
@@ -126,6 +129,9 @@ inherited PInputFrame: TPInputFrame
     end
     object QTeAPrice: TFloatField
       FieldName = 'Price'
+    end
+    object QTeASign_Int: TIntegerField
+      FieldName = 'Sign_Int'
     end
     object QTeAQua_Qty: TFloatField
       FieldName = 'Qua_Qty'
@@ -164,6 +170,15 @@ inherited PInputFrame: TPInputFrame
     end
     object QTeAAcc_Qty: TFloatField
       FieldName = 'Acc_Qty'
+    end
+    object QTeAUnit: TStringField
+      FieldName = 'Unit'
+      Size = 8
+    end
+    object QTeAVnd_Sim: TStringField
+      FieldName = 'Vnd_Sim'
+      ReadOnly = True
+      Size = 60
     end
   end
   inherited RTeMaster: TppDBPipeline

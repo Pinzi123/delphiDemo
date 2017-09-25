@@ -15,7 +15,7 @@ uses
   APubUnit in '..\Model\APubUnit.pas',
   AhVisible in '..\Model\AhVisible.pas' {AhVisibleFrame: TFrame},
   APubLogin in '..\Model\APubLogin.pas' {APubLoginForm},
-  Test in 'Test.pas' {TestForm},        
+  Test in 'Test.pas' {TestForm},
   ATest in 'ATest.pas' {Form1},
   ATestEdit in 'ATestEdit.pas' {Form2},
   ATestMy in 'ATestMy.pas' {Form3},
@@ -41,7 +41,8 @@ uses
   TPOutput in 'TPOutput.pas' {POutputFrame},
   TSOutput in 'TSOutput.pas' {SOutputFrame},
   TSInput in 'TSInput.pas' {SInputFrame},
-  TStore in 'TStore.pas' {StoreFrame};
+  TStore in 'TStore.pas' {StoreFrame},
+  TStoreCheck in 'TStoreCheck.pas' {Form5};
 
 {$R *.res}
 

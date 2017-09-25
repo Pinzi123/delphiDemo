@@ -111,6 +111,15 @@ inherited TePurchaseaEditorForm: TTePurchaseaEditorForm
       AutoSize = False
       Caption = 'Sto_Qty'
     end
+    object Label12: TLabel
+      Left = 258
+      Top = 87
+      Width = 80
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Unit'
+    end
     object cxDBButtonEdit2: TcxDBButtonEdit
       Left = 103
       Top = 39
@@ -232,6 +241,15 @@ inherited TePurchaseaEditorForm: TTePurchaseaEditorForm
     DataBinding.DataSource = EditData
     Enabled = False
     TabOrder = 6
+    Width = 135
+  end
+  object cxDBTextEdit8: TcxDBTextEdit [7]
+    Left = 344
+    Top = 84
+    DataBinding.DataField = 'Unit'
+    DataBinding.DataSource = EditData
+    Enabled = False
+    TabOrder = 7
     Width = 135
   end
 end

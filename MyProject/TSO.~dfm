@@ -1,10 +1,10 @@
 inherited SOFrame: TSOFrame
-  Height = 682
+  Height = 765
   inherited wwDBGrid1: TwwDBGrid
-    Height = 458
+    Height = 541
   end
   inherited wwDBGrid2: TwwDBGrid
-    Top = 482
+    Top = 565
   end
   inherited QTeMaster: TMSQuery
     SQL.Strings = (
@@ -45,6 +45,10 @@ inherited SOFrame: TSOFrame
     end
     object QTeMasterCreate_Date: TDateTimeField
       FieldName = 'Create_Date'
+    end
+    object QTeMasterLA: TStringField
+      FieldName = 'LA'
+      Size = 50
     end
     object QTeMasterUpd_Name: TStringField
       FieldName = 'Upd_Name'
@@ -104,57 +108,81 @@ inherited SOFrame: TSOFrame
     end
     object QTeAItem_No: TIntegerField
       FieldName = 'Item_No'
+      Visible = False
     end
     object QTeAPart_No: TStringField
       FieldName = 'Part_No'
+      Visible = False
       Size = 12
     end
     object QTeAMat_No: TStringField
       FieldName = 'Mat_No'
+      Visible = False
       Size = 14
     end
     object QTeAMat_Name: TStringField
       FieldName = 'Mat_Name'
+      Visible = False
       Size = 50
     end
     object QTeAMat_Desc: TStringField
       FieldName = 'Mat_Desc'
+      Visible = False
       Size = 50
     end
     object QTeAVendor: TStringField
       FieldName = 'Vendor'
+      Visible = False
       Size = 12
+    end
+    object QTeARemark: TStringField
+      DisplayWidth = 100
+      FieldName = 'Remark'
+      Size = 120
     end
     object QTeAUse_Cust: TStringField
       FieldName = 'Use_Cust'
+      Visible = False
       Size = 12
     end
     object QTeAReq_Qty: TFloatField
       FieldName = 'Req_Qty'
+      Visible = False
     end
     object QTeAList_Qty: TFloatField
       FieldName = 'List_Qty'
+      Visible = False
     end
     object QTeAOut_Qty: TFloatField
       FieldName = 'Out_Qty'
-    end
-    object QTeARemark: TStringField
-      FieldName = 'Remark'
-      Size = 120
+      Visible = False
     end
     object QTeACreate_Name: TStringField
       FieldName = 'Create_Name'
+      Visible = False
       Size = 10
     end
     object QTeACreate_Date: TDateTimeField
       FieldName = 'Create_Date'
+      Visible = False
     end
     object QTeAUpd_Name: TStringField
       FieldName = 'Upd_Name'
+      Visible = False
       Size = 10
     end
     object QTeAUpd_Date: TDateTimeField
       FieldName = 'Upd_Date'
+      Visible = False
+    end
+    object QTeAUnit: TStringField
+      FieldName = 'Unit'
+      Visible = False
+      Size = 8
+    end
+    object QTeAPrice: TFloatField
+      FieldName = 'Price'
+      Visible = False
     end
   end
 end

@@ -30,6 +30,10 @@ inherited SOutputFrame: TSOutputFrame
       FieldName = 'PA'
       Size = 12
     end
+    object QTeMasterLA: TStringField
+      FieldName = 'LA'
+      Size = 12
+    end
     object QTeMasterRemark: TStringField
       FieldName = 'Remark'
       Size = 120
@@ -124,9 +128,6 @@ inherited SOutputFrame: TSOutputFrame
     object QTeAPay_Qty: TFloatField
       FieldName = 'Pay_Qty'
     end
-    object QTeAPrice: TFloatField
-      FieldName = 'Price'
-    end
     object QTeAQua_Qty: TFloatField
       FieldName = 'Qua_Qty'
     end
@@ -156,6 +157,13 @@ inherited SOutputFrame: TSOutputFrame
     end
     object QTeAAcc_Qty: TFloatField
       FieldName = 'Acc_Qty'
+    end
+    object QTeAUnit: TStringField
+      FieldName = 'Unit'
+      Size = 8
+    end
+    object QTeAPrice: TFloatField
+      FieldName = 'Price'
     end
   end
 end

@@ -14,7 +14,25 @@ uses
 type
   TPInputFrame = class(TForm4)
     ActionList1: TActionList;
-    QTeAStr_Auto: TStringField;
+    QTeMasterStr_Auto: TGuidField;
+    QTeMasterGive_Date: TDateTimeField;
+    QTeMasterMove_Date: TDateTimeField;
+    QTeMasterList_No: TStringField;
+    QTeMasterPur_No: TStringField;
+    QTeMasterRemark: TStringField;
+    QTeMasterAply_Status: TBooleanField;
+    QTeMasterTemp_Date: TStringField;
+    QTeMasterFCheck: TBooleanField;
+    QTeMasterFCheck_Name: TStringField;
+    QTeMasterRCheck: TBooleanField;
+    QTeMasterRCheck_Name: TStringField;
+    QTeMasterCreate_Name: TStringField;
+    QTeMasterCreate_Date: TDateTimeField;
+    QTeMasterUpd_Name: TStringField;
+    QTeMasterUpd_Date: TDateTimeField;
+    QTeMasterDepart_Name: TStringField;
+    QTeMasterPA: TStringField;
+    QTeAStr_Auto: TGuidField;
     QTeAList_No: TStringField;
     QTeAPur_No: TStringField;
     QTeAItem_No: TIntegerField;
@@ -35,24 +53,8 @@ type
     QTeAMat_Desc: TStringField;
     QTeAMat_Name: TStringField;
     QTeAAcc_Qty: TFloatField;
-    QTeMasterStr_Auto: TGuidField;
-    QTeMasterGive_Date: TDateTimeField;
-    QTeMasterMove_Date: TDateTimeField;
-    QTeMasterList_No: TStringField;
-    QTeMasterPur_No: TStringField;
-    QTeMasterRemark: TStringField;
-    QTeMasterAply_Status: TBooleanField;
-    QTeMasterTemp_Date: TStringField;
-    QTeMasterFCheck: TBooleanField;
-    QTeMasterFCheck_Name: TStringField;
-    QTeMasterRCheck: TBooleanField;
-    QTeMasterRCheck_Name: TStringField;
-    QTeMasterCreate_Name: TStringField;
-    QTeMasterCreate_Date: TDateTimeField;
-    QTeMasterUpd_Name: TStringField;
-    QTeMasterUpd_Date: TDateTimeField;
-    QTeMasterDepart_Name: TStringField;
-    QTeMasterPA: TStringField;
+    QTeAUnit: TStringField;
+    QTeMasterLA: TStringField;
   private
     { Private declarations }
   public

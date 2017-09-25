@@ -1,13 +1,22 @@
 inherited DhListEditorForm: TDhListEditorForm
   Caption = 'DhListEditorForm'
-  ClientHeight = 176
+  ClientHeight = 163
   ClientWidth = 533
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
+  object Label7: TLabel [0]
+    Left = 20
+    Top = 74
+    Width = 90
+    Height = 13
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = 'LA'
+  end
   inherited Panel1: TPanel
     Width = 533
-    Height = 176
+    Height = 163
     object Label1: TLabel
       Left = 20
       Top = 29
@@ -28,7 +37,7 @@ inherited DhListEditorForm: TDhListEditorForm
     end
     object Label6: TLabel
       Left = 20
-      Top = 75
+      Top = 100
       Width = 90
       Height = 13
       Alignment = taRightJustify
@@ -53,6 +62,15 @@ inherited DhListEditorForm: TDhListEditorForm
       AutoSize = False
       Caption = 'Depart_Name'
     end
+    object Label5: TLabel
+      Left = 20
+      Top = 75
+      Width = 90
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'LA'
+    end
     object cxDBTextEdit1: TcxDBTextEdit
       Left = 112
       Top = 26
@@ -73,7 +91,7 @@ inherited DhListEditorForm: TDhListEditorForm
     end
     object cxDBTextEdit3: TcxDBTextEdit
       Left = 112
-      Top = 71
+      Top = 96
       DataBinding.DataField = 'Remark'
       DataBinding.DataSource = EditData
       TabOrder = 4
@@ -112,6 +130,21 @@ inherited DhListEditorForm: TDhListEditorForm
   inherited cxButton2: TcxButton
     Left = 310
     Top = 124
+  end
+  object cxDBButtonEdit2: TcxDBButtonEdit [5]
+    Left = 112
+    Top = 71
+    DataBinding.DataField = 'LA'
+    DataBinding.DataSource = EditData
+    Properties.Buttons = <
+      item
+        Default = True
+        Kind = bkEllipsis
+      end>
+    Properties.OnButtonClick = cxDBButtonEdit2PropertiesButtonClick
+    Style.ButtonTransparency = ebtHideUnselected
+    TabOrder = 4
+    Width = 135
   end
   inherited EditData: TDataSource
     Top = 10

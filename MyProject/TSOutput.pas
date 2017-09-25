@@ -37,7 +37,6 @@ type
     QTeAVendor: TStringField;
     QTeAVnd_Qty: TFloatField;
     QTeAPay_Qty: TFloatField;
-    QTeAPrice: TFloatField;
     QTeAQua_Qty: TFloatField;
     QTeAUnQua_Qty: TFloatField;
     QTeARefuse_Qty: TFloatField;
@@ -51,6 +50,9 @@ type
     QTeAAcc_Qty: TFloatField;
     QTeMasterDepart_Name: TStringField;
     QTeMasterPA: TStringField;
+    QTeAUnit: TStringField;
+    QTeAPrice: TFloatField;
+    QTeMasterLA: TStringField;
   private
     { Private declarations }
   public

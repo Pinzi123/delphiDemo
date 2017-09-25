@@ -20,13 +20,15 @@ type
     QTePurchaseMat_No: TStringField;
     QTePurchaseMat_Name: TStringField;
     QTePurchaseMat_Desc: TStringField;
-    QTePurchaseStoNumber: TFloatField;
     QTePurchaseVendor: TStringField;
     QTePurchaseVnd_Sim: TStringField;
+    QTePurchaseStoNumber: TFloatField;
+    procedure ActionRefreshExecute(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
+    procedure GetSelectWhere; override;
   end;
 
 var
@@ -34,9 +36,30 @@ var
 
 implementation
 
+uses  AData, APubUnit;
+
+
 {$R *.dfm}
 
-{ TStoreFrame }
+procedure TStoreFrame.GetSelectWhere;
+begin
+QTePurchase.ParamByName('Check_Date').Value:= StrToDateTime('0');
+TempString:='select top 1 Check_Date from dbo.Te_StoreCheckTemp order by Check_Date desc';
+QAPubDataOpen(Format(TempString,[]));
+if  ADMSystem.QAPubData.RecordCount=1  then
+ QTePurchase.ParamByName('Check_Date').Value:=ADMSystem.QAPubData.FieldByName('Check_Date').AsDateTime;
+end;
+
+procedure TStoreFrame.ActionRefreshExecute(Sender: TObject);
+begin
+  QTePurchase.ParamByName('Check_Date').Value:= StrToDateTime('0');
+  TempString:='select top 1 Check_Date from dbo.Te_StoreCheckTemp order by Check_Date desc';
+  QAPubDataOpen(Format(TempString,[]));
+  if  ADMSystem.QAPubData.RecordCount=1  then
+  QTePurchase.ParamByName('Check_Date').Value:=ADMSystem.QAPubData.FieldByName('Check_Date').AsDateTime;
+  inherited;
+
+end;
 
 Initialization
   RegisterClass(TStoreFrame);

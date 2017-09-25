@@ -35,6 +35,9 @@ type
     Label3: TLabel;
     cxDBTextEdit10: TcxDBTextEdit;
     Label5: TLabel;
+    Label7: TLabel;
+    cxDBTextEdit1: TcxDBTextEdit;
+    Label11: TLabel;
     procedure cxDBButtonEdit3PropertiesButtonClick(Sender: TObject;
       AButtonIndex: Integer);
     procedure cxDBTextEdit10PropertiesEditValueChanged(Sender: TObject);
@@ -67,7 +70,7 @@ if CheckValue and (EditData.State in [dsInsert,dsEdit]) then
    begin
      if(PurStr <> '')  then
      begin
-       TempString:='SELECT Item_No,Mat_No,Vendor,Price,Mat_Desc,Mat_Name,Req_Pur_Qty FROM Te_Purchasea WHERE Pur_No='''+PurStr+''''
+       TempString:='SELECT Item_No,Mat_No,Vendor,Price,Mat_Desc,Mat_Name,Req_Pur_Qty,Unit FROM Te_Purchasea WHERE Pur_No='''+PurStr+''''
        + 'and (Item_No not in (select Item_No from dbo.Te_Storea where Pur_No='''+PurStr+''')' + 'or Item_No='''+ItemNo+''')';
        if SelectData(TempString) then
         begin
@@ -84,12 +87,13 @@ if CheckValue and (EditData.State in [dsInsert,dsEdit]) then
            EditData.DataSet.FieldByName('Mat_Desc').ConstraintErrorMessage:='';
            EditData.DataSet.FieldByName('Vendor').AsString:=ADMSystem.QAPubData.FieldByName('Vendor').AsString;
            EditData.DataSet.FieldByName('Vendor').ConstraintErrorMessage:='';
+           EditData.DataSet.FieldByName('Unit').AsString:=ADMSystem.QAPubData.FieldByName('Unit').AsString;
            CheckValue:=True;
         end;
      end
      else
      begin
-       TempString:='SELECT Item_No,Mat_No,Mat_Desc,Mat_Name,Vendor,Req_Qty FROM Te_Lista WHERE List_No='''+ListStr+''''
+       TempString:='SELECT Item_No,Mat_No,Mat_Desc,Mat_Name,Vendor,Req_Qty,Price,Unit FROM Te_Lista WHERE List_No='''+ListStr+''''
         + 'and (Item_No not in (select Item_No from dbo.Te_Storea where List_No='''+ListStr+''')' + 'or Item_No='''+ItemNo+''')';
         if SelectData(TempString) then
         begin
@@ -98,6 +102,7 @@ if CheckValue and (EditData.State in [dsInsert,dsEdit]) then
            EditData.DataSet.FieldByName('Item_No').ConstraintErrorMessage:='';
            EditData.DataSet.FieldByName('Mat_No').AsString:=ADMSystem.QAPubData.FieldByName('Mat_No').AsString;
            EditData.DataSet.FieldByName('Mat_No').ConstraintErrorMessage:='';
+           EditData.DataSet.FieldByName('Price').AsString:=ADMSystem.QAPubData.FieldByName('Price').AsString;
            EditData.DataSet.FieldByName('Price').ConstraintErrorMessage:='';
            EditData.DataSet.FieldByName('Mat_Name').AsString:=ADMSystem.QAPubData.FieldByName('Mat_Name').AsString;
            EditData.DataSet.FieldByName('Mat_Name').ConstraintErrorMessage:='';
@@ -105,6 +110,7 @@ if CheckValue and (EditData.State in [dsInsert,dsEdit]) then
            EditData.DataSet.FieldByName('Mat_Desc').ConstraintErrorMessage:='';
            EditData.DataSet.FieldByName('Vendor').AsString:=ADMSystem.QAPubData.FieldByName('Vendor').AsString;
            EditData.DataSet.FieldByName('Vendor').ConstraintErrorMessage:='';
+           EditData.DataSet.FieldByName('Unit').AsString:=ADMSystem.QAPubData.FieldByName('Unit').AsString;
            CheckValue:=True;
         end;
      end;
@@ -128,7 +134,7 @@ begin
        QAPubDataOpen(Format(TempString,[PurStr,ItemNo]));
        if  (strtofloat(EditData.DataSet.FieldByName('Acc_Qty').AsString) > strtofloat(ADMSystem.QAPubData.FieldByName('Req_Pur_Qty').AsString)) then
           begin
-            EditData.DataSet.FieldByName('Acc_Qty').AsString = '0';
+            EditData.DataSet.FieldByName('Acc_Qty').AsString := '0';
             EditData.DataSet.FieldByName('Acc_Qty').ConstraintErrorMessage:='';
             ShowWarning('輸入的數值過大');
             (Sender as TcxDBTextEdit).SetFocus;

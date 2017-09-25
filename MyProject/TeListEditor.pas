@@ -21,10 +21,15 @@ type
     cxDBButtonEdit1: TcxDBButtonEdit;
     Label3: TLabel;
     cxDBTextEdit2: TcxDBTextEdit;
+    cxDBButtonEdit2: TcxDBButtonEdit;
+    Label7: TLabel;
+    Label5: TLabel;
     procedure cxDBButtonEdit1PropertiesButtonClick(Sender: TObject;
       AButtonIndex: Integer);
     procedure cxDBButtonEdit1PropertiesEditValueChanged(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure cxDBButtonEdit2PropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
   private
     { Private declarations }
   public
@@ -44,10 +49,10 @@ uses TSO, AData, APubUnit;
 procedure TDhListEditorForm.cxDBButtonEdit1PropertiesButtonClick(
   Sender: TObject; AButtonIndex: Integer);
 begin
-if EditData.State in [dsInsert,dsEdit] then
-   begin
-     TempString:='SELECT  Depart_No, Depart_Name, Parent_No FROM  dbo.Pa_Depart where Use_Status=0';
-     if TreeSelectData('Depart_No',TempString) then
+  if EditData.State in [dsInsert,dsEdit] then
+  begin
+    TempString:='SELECT  Depart_No, Depart_Name, Parent_No FROM  dbo.Pa_Depart';
+    if SelectData(TempString) then
         begin
            CheckValue:=False;
            EditData.DataSet.FieldByName('Depart_No').AsString:=ADMSystem.QAPubData.FieldByName('Depart_No').AsString;
@@ -56,7 +61,8 @@ if EditData.State in [dsInsert,dsEdit] then
            CheckValue:=True;
         end;
      QAPubDataClose;
-   End;
+  end;
+
 end;
 
 procedure TDhListEditorForm.cxDBButtonEdit1PropertiesEditValueChanged(
@@ -88,6 +94,23 @@ begin
   inherited;
   cxDBDateEdit1.Text := DateToStr(Now);
   cxDBButtonEdit1.SetFocus;
+end;
+
+procedure TDhListEditorForm.cxDBButtonEdit2PropertiesButtonClick(
+  Sender: TObject; AButtonIndex: Integer);
+begin
+  if EditData.State in [dsInsert,dsEdit] then
+   begin
+     TempString:='SELECT  Depart_No,User_Name  FROM [CNData].[dbo].[Af_User] ';
+     if SelectData(TempString) then
+        begin
+           CheckValue:=False;
+           EditData.DataSet.FieldByName('LA').AsString:=ADMSystem.QAPubData.FieldByName('User_Name').AsString;
+           EditData.DataSet.FieldByName('LA').ConstraintErrorMessage:='';
+           CheckValue:=True;
+        end;
+     QAPubDataClose;
+   end;
 end;
 
 Initialization

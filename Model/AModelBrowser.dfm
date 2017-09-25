@@ -1,8 +1,8 @@
 object AModelBrowserFrame: TAModelBrowserFrame
   Left = 0
   Top = 0
-  Width = 845
-  Height = 585
+  Width = 854
+  Height = 511
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,7 +15,7 @@ object AModelBrowserFrame: TAModelBrowserFrame
   object CoolBar1: TCoolBar
     Left = 0
     Top = 0
-    Width = 845
+    Width = 854
     Height = 39
     Anchors = [akLeft, akRight]
     AutoSize = True
@@ -24,13 +24,13 @@ object AModelBrowserFrame: TAModelBrowserFrame
         Control = ToolBar1
         ImageIndex = -1
         MinHeight = 35
-        Width = 841
+        Width = 850
       end>
     Visible = False
     object ToolBar1: TToolBar
       Left = 9
       Top = 0
-      Width = 828
+      Width = 837
       Height = 35
       AutoSize = True
       ButtonHeight = 35
@@ -221,7 +221,6 @@ object AModelBrowserFrame: TAModelBrowserFrame
     end
   end
   object ActionList: TActionList
-    Images = ADMSystem.ImageList1
     OnUpdate = ActionListUpdate
     Left = 618
     Top = 60
@@ -487,7 +486,6 @@ object AModelBrowserFrame: TAModelBrowserFrame
     mmColumnWidth = 0
   end
   object PopupMenu1: TPopupMenu
-    Images = ADMSystem.ImageList1
     Left = 520
     Top = 62
     object N1: TMenuItem

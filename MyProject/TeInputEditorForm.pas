@@ -28,6 +28,8 @@ type
     cxDBTextEdit2: TcxDBTextEdit;
     Label8: TLabel;
     cxDBTextEdit3: TcxDBTextEdit;
+    Label9: TLabel;
+    cxDBTextEdit4: TcxDBTextEdit;
     procedure cxDBButtonEdit2PropertiesButtonClick(Sender: TObject;
       AButtonIndex: Integer);
     procedure cxDBButtonEdit1PropertiesButtonClick(Sender: TObject;
@@ -76,7 +78,7 @@ procedure TTeInputEditorForm.cxDBButtonEdit1PropertiesButtonClick(
 begin
 if EditData.State in [dsInsert,dsEdit] then
    begin
-     TempString:='SELECT [List_No],[Depart_No],[Depart_Name],[List_Date] FROM [CNData].[dbo].[Te_List]'
+     TempString:='SELECT [List_No],[Depart_No],[Depart_Name],[List_Date],[LA] FROM [CNData].[dbo].[Te_List]'
      + 'where List_No not in (select List_No from dbo.Te_Store where List_No is not null) and RCheck = 1';
      if SelectData(TempString) then
         begin
@@ -85,6 +87,8 @@ if EditData.State in [dsInsert,dsEdit] then
            EditData.DataSet.FieldByName('List_No').ConstraintErrorMessage:='';
            EditData.DataSet.FieldByName('Depart_Name').AsString:=ADMSystem.QAPubData.FieldByName('Depart_Name').AsString;
            EditData.DataSet.FieldByName('Depart_Name').ConstraintErrorMessage:='';
+            EditData.DataSet.FieldByName('LA').AsString:=ADMSystem.QAPubData.FieldByName('LA').AsString;
+            EditData.DataSet.FieldByName('LA').ConstraintErrorMessage:='';
            CheckValue:=True;
         end;
      QAPubDataClose;

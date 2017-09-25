@@ -41,7 +41,7 @@ inherited TeInputEditorForm: TTeInputEditorForm
     end
     object Label1: TLabel
       Left = 285
-      Top = 53
+      Top = 28
       Width = 80
       Height = 13
       Alignment = taRightJustify
@@ -50,7 +50,7 @@ inherited TeInputEditorForm: TTeInputEditorForm
     end
     object Label3: TLabel
       Left = 285
-      Top = 76
+      Top = 51
       Width = 80
       Height = 13
       Alignment = taRightJustify
@@ -86,12 +86,21 @@ inherited TeInputEditorForm: TTeInputEditorForm
     end
     object Label8: TLabel
       Left = 285
-      Top = 100
+      Top = 75
       Width = 80
       Height = 13
       Alignment = taRightJustify
       AutoSize = False
       Caption = 'Depart_Name'
+    end
+    object Label9: TLabel
+      Left = 284
+      Top = 98
+      Width = 80
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'LA'
     end
     object cxDBTextEdit1: TcxDBTextEdit
       Left = 100
@@ -126,7 +135,7 @@ inherited TeInputEditorForm: TTeInputEditorForm
     end
     object cxDBDateEdit2: TcxDBDateEdit
       Left = 368
-      Top = 51
+      Top = 26
       DataBinding.DataField = 'Give_Date'
       DataBinding.DataSource = EditData
       Style.ButtonTransparency = ebtHideUnselected
@@ -135,7 +144,7 @@ inherited TeInputEditorForm: TTeInputEditorForm
     end
     object cxDBButtonEdit1: TcxDBButtonEdit
       Left = 368
-      Top = 74
+      Top = 49
       DataBinding.DataField = 'List_No'
       DataBinding.DataSource = EditData
       Properties.Buttons = <
@@ -151,7 +160,7 @@ inherited TeInputEditorForm: TTeInputEditorForm
     end
     object cxDBTextEdit2: TcxDBTextEdit
       Left = 368
-      Top = 98
+      Top = 73
       DataBinding.DataField = 'Depart_Name'
       DataBinding.DataSource = EditData
       Enabled = False
@@ -165,6 +174,15 @@ inherited TeInputEditorForm: TTeInputEditorForm
       DataBinding.DataSource = EditData
       Enabled = False
       TabOrder = 6
+      Width = 135
+    end
+    object cxDBTextEdit4: TcxDBTextEdit
+      Left = 368
+      Top = 96
+      DataBinding.DataField = 'LA'
+      DataBinding.DataSource = EditData
+      Enabled = False
+      TabOrder = 7
       Width = 135
     end
   end
