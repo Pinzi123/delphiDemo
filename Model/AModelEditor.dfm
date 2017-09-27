@@ -90,8 +90,8 @@ object AModelEditorForm: TAModelEditorForm
     NumGlyphs = 2
   end
   object cxButton2: TcxButton
-    Left = 302
-    Top = 304
+    Left = 301
+    Top = 306
     Width = 75
     Height = 25
     Caption = #21462#28040'&C'

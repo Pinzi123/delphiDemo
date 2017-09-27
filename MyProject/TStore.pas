@@ -23,7 +23,13 @@ type
     QTePurchaseVendor: TStringField;
     QTePurchaseVnd_Sim: TStringField;
     QTePurchaseStoNumber: TFloatField;
+    QUser: TMSQuery;
+    QUserUserName: TStringField;
+    DUser: TDataSource;
+    RUser: TppDBPipeline;
+    QTePurchaseChn_Unit: TStringField;
     procedure ActionRefreshExecute(Sender: TObject);
+    procedure ActionPrivewExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -59,6 +65,19 @@ begin
   QTePurchase.ParamByName('Check_Date').Value:=ADMSystem.QAPubData.FieldByName('Check_Date').AsDateTime;
   inherited;
 
+end;
+
+procedure TStoreFrame.ActionPrivewExecute(Sender: TObject);
+begin
+  with QUser do begin
+    Close;
+    with SQL do begin
+      Clear;
+      Add('SELECT UserName=''' + UserName + '''');
+    end;
+    Open;
+  end;
+  inherited;
 end;
 
 Initialization

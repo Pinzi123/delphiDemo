@@ -32,7 +32,28 @@ type
     QTeStoreCCreate_Date: TDateTimeField;
     QTeStoreCUpd_Name: TStringField;
     QTeStoreCUpd_Date: TDateTimeField;
+    QVendor: TMSQuery;
+    DVendor: TDataSource;
+    RVendor: TppDBPipeline;
+    QVendorVendor: TStringField;
+    QVendorVnd_Sim: TStringField;
+    QVendorVnd_Type: TStringField;
+    QVendorChn_Name: TStringField;
+    QVendorChn_Address: TStringField;
+    QVendorEng_Name: TStringField;
+    QVendorEng_Address: TStringField;
+    QUser: TMSQuery;
+    QUserUserName: TStringField;
+    DUser: TDataSource;
+    RUser: TppDBPipeline;
+    QTeStoreCFCheck_Date: TDateTimeField;
+    QTeStoreCRCheck: TBooleanField;
+    QTeStoreCRCheck_Name: TStringField;
+    QTeStoreCRCheck_Date: TDateTimeField;
     procedure ActionSetupExecute(Sender: TObject);
+    procedure ActionPrivewExecute(Sender: TObject);
+    procedure ActionFCheckExecute(Sender: TObject);
+    procedure ActionRCheckExecute(Sender: TObject);
   private
      TempSql:string;
     { Private declarations }
@@ -84,6 +105,33 @@ if GetStartEndDate(5) then
      MyStatusBar.Panels[6].Text:='®w¦s½LÂIªí:'+SelectWhere;
    end;
   SetMyDate;
+end;
+
+procedure TStoreCheckFrame.ActionPrivewExecute(Sender: TObject);
+begin
+  with QUser do begin
+    Close;
+    with SQL do begin
+      Clear;
+      Add('SELECT UserName=''' + UserName + '''');
+    end;
+    Open;
+  end;
+  inherited;
+
+end;
+
+procedure TStoreCheckFrame.ActionFCheckExecute(Sender: TObject);
+var i:integer;
+begin
+wwDBGrid1.SelectAll;
+inherited;
+end;
+
+procedure TStoreCheckFrame.ActionRCheckExecute(Sender: TObject);
+begin
+  wwDBGrid1.SelectAll;
+  inherited;
 end;
 
 Initialization

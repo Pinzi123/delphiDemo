@@ -1,6 +1,6 @@
 inherited TeInputEditorForm: TTeInputEditorForm
-  Left = 363
-  Top = 620
+  Left = 433
+  Top = 433
   Caption = 'TeInputEditorForm'
   ClientHeight = 217
   ClientWidth = 583

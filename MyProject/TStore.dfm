@@ -49,7 +49,7 @@ inherited StoreFrame: TStoreFrame
       'SET @Check_Date = :Check_Date'
       
         'select Db_MatNumber.Mat_No,Db_MatNumber.Mat_Name,Mat_Desc,Bb_Ven' +
-        'dor.Vendor,Bb_Vendor.Vnd_Sim, StoNumber'
+        'dor.Vendor,Bb_Vendor.Vnd_Sim, StoNumber,Chn_Unit'
       'from Db_MatNumber,Bb_Vendor,'
       '(select a.Mat_No,a.Vendor, '
       
@@ -69,7 +69,7 @@ inherited StoreFrame: TStoreFrame
       '       ON checkP.Mat_No = a.Mat_NO) as store'
       ' where store.Mat_No = Db_MatNumber.Mat_No'
       '       and store.Vendor = Bb_Vendor.Vendor')
-    Left = 56
+    Left = 104
     Top = 72
     ParamData = <
       item
@@ -109,16 +109,43 @@ inherited StoreFrame: TStoreFrame
       FieldName = 'StoNumber'
       ReadOnly = True
     end
+    object QTePurchaseChn_Unit: TStringField
+      FieldName = 'Chn_Unit'
+      Size = 8
+    end
   end
   object DTePurchase: TDataSource
     DataSet = QTePurchase
-    Left = 104
+    Left = 140
     Top = 72
   end
   object RTePurchase: TppDBPipeline
     DataSource = DTePurchase
     UserName = 'RTePurchase'
-    Left = 160
+    Left = 177
     Top = 72
+  end
+  object QUser: TMSQuery
+    Connection = ADMSystem.ADMConnection
+    SQL.Strings = (
+      'SELECT UserName='#39#35069#34920#20154#39)
+    Left = 104
+    Top = 200
+    object QUserUserName: TStringField
+      FieldName = 'UserName'
+      ReadOnly = True
+      Size = 6
+    end
+  end
+  object DUser: TDataSource
+    DataSet = QUser
+    Left = 137
+    Top = 200
+  end
+  object RUser: TppDBPipeline
+    DataSource = DUser
+    UserName = 'RUser'
+    Left = 176
+    Top = 200
   end
 end

@@ -42,7 +42,8 @@ uses
   TSOutput in 'TSOutput.pas' {SOutputFrame},
   TSInput in 'TSInput.pas' {SInputFrame},
   TStore in 'TStore.pas' {StoreFrame},
-  TStoreCheck in 'TStoreCheck.pas' {StoreCheckFrame};
+  TStoreCheck in 'TStoreCheck.pas' {StoreCheckFrame},
+  TeStoreCEditForm in 'TeStoreCEditForm.pas' {TeStoreCEditForm1};
 
 {$R *.res}
 

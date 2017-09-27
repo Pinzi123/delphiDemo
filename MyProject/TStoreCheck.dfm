@@ -1,10 +1,11 @@
 inherited StoreCheckFrame: TStoreCheckFrame
+  Height = 544
   object wwDBGrid1: TwwDBGrid [1]
     Tag = 1
     Left = 0
     Top = 39
     Width = 854
-    Height = 472
+    Height = 505
     HelpType = htKeyword
     Selected.Strings = (
       'Selected'#9'5'#9'Selected'
@@ -60,7 +61,7 @@ inherited StoreCheckFrame: TStoreCheckFrame
     FetchRows = 1
     Active = True
     Left = 102
-    Top = 68
+    Top = 84
     ParamData = <
       item
         DataType = ftUnknown
@@ -142,21 +143,125 @@ inherited StoreCheckFrame: TStoreCheckFrame
       FieldName = 'Upd_Name'
       Size = 10
     end
+    object QTeStoreCFCheck_Date: TDateTimeField
+      FieldName = 'FCheck_Date'
+      Visible = False
+    end
     object QTeStoreCUpd_Date: TDateTimeField
       DisplayWidth = 18
       FieldName = 'Upd_Date'
+    end
+    object QTeStoreCRCheck: TBooleanField
+      FieldName = 'RCheck'
+      Visible = False
+    end
+    object QTeStoreCRCheck_Name: TStringField
+      FieldName = 'RCheck_Name'
+      Visible = False
+      Size = 10
+    end
+    object QTeStoreCRCheck_Date: TDateTimeField
+      FieldName = 'RCheck_Date'
+      Visible = False
     end
   end
   object DTeStoreC: TDataSource
     AutoEdit = False
     DataSet = QTeStoreC
     Left = 138
-    Top = 68
+    Top = 84
   end
   object RTeStoreC: TppDBPipeline
     DataSource = DTeStoreC
     UserName = 'RTeStoreC'
     Left = 176
-    Top = 70
+    Top = 84
+  end
+  object QVendor: TMSQuery
+    Connection = ADMSystem.ADMConnection
+    SQL.Strings = (
+      'SELECT [Vendor]'
+      '      ,[Vnd_Sim]'
+      '      ,[Vnd_Type]'
+      '      ,[Chn_Name]'
+      '      ,[Chn_Address]'
+      '      ,[Eng_Name]'
+      '      ,[Eng_Address]'
+      '  FROM [CNData].[dbo].[Bb_Vendor]')
+    FetchRows = 1
+    MasterSource = DTeStoreC
+    MasterFields = 'Vendor'
+    DetailFields = 'Vendor'
+    Left = 102
+    Top = 125
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'Vendor'
+        ParamType = ptInput
+      end>
+    object QVendorVendor: TStringField
+      FieldName = 'Vendor'
+      Size = 12
+    end
+    object QVendorVnd_Sim: TStringField
+      FieldName = 'Vnd_Sim'
+      Size = 60
+    end
+    object QVendorVnd_Type: TStringField
+      FieldName = 'Vnd_Type'
+      Size = 200
+    end
+    object QVendorChn_Name: TStringField
+      FieldName = 'Chn_Name'
+      Size = 80
+    end
+    object QVendorChn_Address: TStringField
+      FieldName = 'Chn_Address'
+      Size = 160
+    end
+    object QVendorEng_Name: TStringField
+      FieldName = 'Eng_Name'
+      Size = 200
+    end
+    object QVendorEng_Address: TStringField
+      FieldName = 'Eng_Address'
+      Size = 200
+    end
+  end
+  object DVendor: TDataSource
+    AutoEdit = False
+    DataSet = QVendor
+    Left = 138
+    Top = 125
+  end
+  object RVendor: TppDBPipeline
+    DataSource = DVendor
+    UserName = 'RTeStoreC1'
+    Left = 176
+    Top = 125
+  end
+  object QUser: TMSQuery
+    Connection = ADMSystem.ADMConnection
+    SQL.Strings = (
+      'SELECT UserName='#39#35069#34920#20154#39)
+    Left = 104
+    Top = 168
+    object QUserUserName: TStringField
+      FieldName = 'UserName'
+      ReadOnly = True
+      Size = 6
+    end
+  end
+  object DUser: TDataSource
+    DataSet = QUser
+    Left = 137
+    Top = 168
+  end
+  object RUser: TppDBPipeline
+    DataSource = DUser
+    UserName = 'RUser'
+    Left = 176
+    Top = 168
   end
 end

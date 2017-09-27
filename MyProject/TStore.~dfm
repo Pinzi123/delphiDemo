@@ -121,4 +121,27 @@ inherited StoreFrame: TStoreFrame
     Left = 160
     Top = 72
   end
+  object QUser: TMSQuery
+    Connection = ADMSystem.ADMConnection
+    SQL.Strings = (
+      'SELECT UserName='#39#35069#34920#20154#39)
+    Left = 104
+    Top = 200
+    object QUserUserName: TStringField
+      FieldName = 'UserName'
+      ReadOnly = True
+      Size = 6
+    end
+  end
+  object DUser: TDataSource
+    DataSet = QUser
+    Left = 137
+    Top = 200
+  end
+  object RUser: TppDBPipeline
+    DataSource = DUser
+    UserName = 'RUser'
+    Left = 176
+    Top = 200
+  end
 end
