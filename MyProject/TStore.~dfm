@@ -49,27 +49,35 @@ inherited StoreFrame: TStoreFrame
       'SET @Check_Date = :Check_Date'
       
         'select Db_MatNumber.Mat_No,Db_MatNumber.Mat_Name,Mat_Desc,Bb_Ven' +
-        'dor.Vendor,Bb_Vendor.Vnd_Sim, StoNumber'
+        'dor.Vendor,Bb_Vendor.Vnd_Sim, StoNumber,Chn_Unit'
       'from Db_MatNumber,Bb_Vendor,'
-      '(select a.Mat_No,a.Vendor, '
+      
+        '(select (CASE WHEN a.Mat_No IS NULL THEN checkP.Mat_No ELSE a.Ma' +
+        't_No END) as Mat_No,'
+      
+        '        (CASE WHEN a.Vendor IS NULL THEN checkP.Vendor ELSE a.Ve' +
+        'ndor END) as Vendor, '
       
         '((CASE WHEN Store_Eqty IS NULL THEN 0 ELSE Store_Eqty END) +  (C' +
         'ASE WHEN Number IS NULL THEN 0 ELSE Number END)) as  StoNumber'
       ' from '
       '     (select Mat_No,Vendor,SUM(Sign_Int*Acc_Qty) as Number'
       '      from '
-      '          (select * '
-      '           from Te_Storea  '
-      '           where Create_Date < GETDATE()'
-      '                 and Create_Date > 0 ) as a'
-      '           group by Vendor,Mat_No) as a'
+      '          (select Te_Storea.* '
+      '           from Te_Storea, Te_Store '
+      '           where Te_Store.Give_Date < GETDATE()'
+      '                 and Te_Store.Give_Date > @Check_Date'
+      
+        '                 and Te_Storea.Str_Auto = Te_Store.Str_Auto ) as' +
+        ' a'
+      '           group by Vendor,Mat_No,Unit) as a'
       
         ' FULL JOIN (select * from Te_StoreCheckTemp where Check_Date = @' +
         'Check_Date) as checkP'
       '       ON checkP.Mat_No = a.Mat_NO) as store'
       ' where store.Mat_No = Db_MatNumber.Mat_No'
       '       and store.Vendor = Bb_Vendor.Vendor')
-    Left = 56
+    Left = 104
     Top = 72
     ParamData = <
       item
@@ -109,16 +117,20 @@ inherited StoreFrame: TStoreFrame
       FieldName = 'StoNumber'
       ReadOnly = True
     end
+    object QTePurchaseChn_Unit: TStringField
+      FieldName = 'Chn_Unit'
+      Size = 8
+    end
   end
   object DTePurchase: TDataSource
     DataSet = QTePurchase
-    Left = 104
+    Left = 140
     Top = 72
   end
   object RTePurchase: TppDBPipeline
     DataSource = DTePurchase
     UserName = 'RTePurchase'
-    Left = 160
+    Left = 177
     Top = 72
   end
   object QUser: TMSQuery

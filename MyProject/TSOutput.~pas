@@ -52,6 +52,7 @@ type
     QTeMasterPA: TStringField;
     QTeAUnit: TStringField;
     QTeAPrice: TFloatField;
+    QTeMasterLA: TStringField;
   private
     { Private declarations }
   public

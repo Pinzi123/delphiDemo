@@ -27,6 +27,7 @@ type
     QUserUserName: TStringField;
     DUser: TDataSource;
     RUser: TppDBPipeline;
+    QTePurchaseChn_Unit: TStringField;
     procedure ActionRefreshExecute(Sender: TObject);
     procedure ActionPrivewExecute(Sender: TObject);
   private

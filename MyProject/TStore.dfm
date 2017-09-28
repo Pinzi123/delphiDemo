@@ -51,17 +51,25 @@ inherited StoreFrame: TStoreFrame
         'select Db_MatNumber.Mat_No,Db_MatNumber.Mat_Name,Mat_Desc,Bb_Ven' +
         'dor.Vendor,Bb_Vendor.Vnd_Sim, StoNumber,Chn_Unit'
       'from Db_MatNumber,Bb_Vendor,'
-      '(select a.Mat_No,a.Vendor, '
+      
+        '(select (CASE WHEN a.Mat_No IS NULL THEN checkP.Mat_No ELSE a.Ma' +
+        't_No END) as Mat_No,'
+      
+        '        (CASE WHEN a.Vendor IS NULL THEN checkP.Vendor ELSE a.Ve' +
+        'ndor END) as Vendor, '
       
         '((CASE WHEN Store_Eqty IS NULL THEN 0 ELSE Store_Eqty END) +  (C' +
         'ASE WHEN Number IS NULL THEN 0 ELSE Number END)) as  StoNumber'
       ' from '
       '     (select Mat_No,Vendor,SUM(Sign_Int*Acc_Qty) as Number'
       '      from '
-      '          (select * '
-      '           from Te_Storea  '
-      '           where Create_Date < GETDATE()'
-      '                 and Create_Date > 0 ) as a'
+      '          (select Te_Storea.* '
+      '           from Te_Storea, Te_Store '
+      '           where Te_Store.Give_Date < GETDATE()'
+      '                 and Te_Store.Give_Date > @Check_Date'
+      
+        '                 and Te_Storea.Str_Auto = Te_Store.Str_Auto ) as' +
+        ' a'
       '           group by Vendor,Mat_No) as a'
       
         ' FULL JOIN (select * from Te_StoreCheckTemp where Check_Date = @' +

@@ -30,6 +30,10 @@ inherited SOutputFrame: TSOutputFrame
       FieldName = 'PA'
       Size = 12
     end
+    object QTeMasterLA: TStringField
+      FieldName = 'LA'
+      Size = 12
+    end
     object QTeMasterRemark: TStringField
       FieldName = 'Remark'
       Size = 120

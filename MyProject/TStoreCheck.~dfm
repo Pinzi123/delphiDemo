@@ -1,11 +1,11 @@
 inherited StoreCheckFrame: TStoreCheckFrame
-  Height = 515
+  Height = 544
   object wwDBGrid1: TwwDBGrid [1]
     Tag = 1
     Left = 0
     Top = 39
     Width = 854
-    Height = 476
+    Height = 265
     HelpType = htKeyword
     Selected.Strings = (
       'Selected'#9'5'#9'Selected'
@@ -49,6 +49,50 @@ inherited StoreCheckFrame: TStoreCheckFrame
     TitleLines = 1
     TitleButtons = True
     TitleImageList = ADMSystem.ImageList1
+  end
+  object wwDBGrid2: TwwDBGrid [2]
+    Left = 0
+    Top = 424
+    Width = 854
+    Height = 120
+    IniAttributes.Delimiter = ';;'
+    TitleColor = clBtnFace
+    FixedCols = 0
+    ShowHorzScrollBar = True
+    Align = alBottom
+    DataSource = DList
+    ImeName = #20013#25991' (?'#20307') - '#25628#29399#25340#38899'?'#20837#27861
+    TabOrder = 2
+    TitleAlignment = taLeftJustify
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -13
+    TitleFont.Name = #26032#32048#26126#39636
+    TitleFont.Style = []
+    TitleLines = 1
+    TitleButtons = False
+  end
+  object wwDBGrid3: TwwDBGrid [3]
+    Left = 0
+    Top = 304
+    Width = 854
+    Height = 120
+    IniAttributes.Delimiter = ';;'
+    TitleColor = clBtnFace
+    FixedCols = 0
+    ShowHorzScrollBar = True
+    Align = alBottom
+    DataSource = DPur
+    ImeName = #20013#25991' (?'#20307') - '#25628#29399#25340#38899'?'#20837#27861
+    TabOrder = 3
+    TitleAlignment = taLeftJustify
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -13
+    TitleFont.Name = #26032#32048#26126#39636
+    TitleFont.Style = []
+    TitleLines = 1
+    TitleButtons = False
   end
   object QTeStoreC: TMSQuery
     Connection = ADMSystem.ADMConnection
@@ -134,6 +178,10 @@ inherited StoreCheckFrame: TStoreCheckFrame
       FieldName = 'Create_Name'
       Size = 10
     end
+    object QTeStoreCFCheck_Date: TDateTimeField
+      FieldName = 'FCheck_Date'
+      Visible = False
+    end
     object QTeStoreCCreate_Date: TDateTimeField
       DisplayWidth = 18
       FieldName = 'Create_Date'
@@ -142,10 +190,6 @@ inherited StoreCheckFrame: TStoreCheckFrame
       DisplayWidth = 10
       FieldName = 'Upd_Name'
       Size = 10
-    end
-    object QTeStoreCFCheck_Date: TDateTimeField
-      FieldName = 'FCheck_Date'
-      Visible = False
     end
     object QTeStoreCUpd_Date: TDateTimeField
       DisplayWidth = 18
@@ -175,7 +219,7 @@ inherited StoreCheckFrame: TStoreCheckFrame
     DataSource = DTeStoreC
     UserName = 'RTeStoreC'
     Left = 176
-    Top = 86
+    Top = 84
   end
   object QVendor: TMSQuery
     Connection = ADMSystem.ADMConnection
@@ -193,7 +237,7 @@ inherited StoreCheckFrame: TStoreCheckFrame
     MasterFields = 'Vendor'
     DetailFields = 'Vendor'
     Left = 102
-    Top = 140
+    Top = 125
     ParamData = <
       item
         DataType = ftString
@@ -233,20 +277,20 @@ inherited StoreCheckFrame: TStoreCheckFrame
     AutoEdit = False
     DataSet = QVendor
     Left = 138
-    Top = 140
+    Top = 125
   end
   object RVendor: TppDBPipeline
     DataSource = DVendor
     UserName = 'RTeStoreC1'
     Left = 176
-    Top = 142
+    Top = 125
   end
   object QUser: TMSQuery
     Connection = ADMSystem.ADMConnection
     SQL.Strings = (
       'SELECT UserName='#39#35069#34920#20154#39)
     Left = 104
-    Top = 200
+    Top = 168
     object QUserUserName: TStringField
       FieldName = 'UserName'
       ReadOnly = True
@@ -256,12 +300,167 @@ inherited StoreCheckFrame: TStoreCheckFrame
   object DUser: TDataSource
     DataSet = QUser
     Left = 137
-    Top = 200
+    Top = 168
   end
   object RUser: TppDBPipeline
     DataSource = DUser
     UserName = 'RUser'
     Left = 176
-    Top = 200
+    Top = 168
+  end
+  object QPur: TMSQuery
+    Connection = ADMSystem.ADMConnection
+    SQL.Strings = (
+      'DECLARE @Check_Date  datetime'
+      'SET @Check_Date=:Check_Date'
+      'select * from dbo.Te_Storea where Pur_No is not null'
+      'and MONTH(Create_Date) = MONTH(@Check_Date) - 1')
+    MasterSource = DTeStoreC
+    MasterFields = 'Mat_No'
+    DetailFields = 'Mat_No'
+    Left = 104
+    Top = 336
+    ParamData = <
+      item
+        DataType = ftDateTime
+        Name = 'Check_Date'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'Mat_No'
+        ParamType = ptInput
+      end>
+    object QPurStr_Auto: TGuidField
+      FieldName = 'Str_Auto'
+      FixedChar = True
+      Size = 38
+    end
+    object QPurPur_No: TStringField
+      FieldName = 'Pur_No'
+      Size = 38
+    end
+    object QPurItem_No: TIntegerField
+      FieldName = 'Item_No'
+    end
+    object QPurMat_No: TStringField
+      FieldName = 'Mat_No'
+      Size = 14
+    end
+    object QPurMat_Name: TStringField
+      FieldName = 'Mat_Name'
+      Size = 50
+    end
+    object QPurPrice: TFloatField
+      FieldName = 'Price'
+    end
+    object QPurAcc_Qty: TFloatField
+      FieldName = 'Acc_Qty'
+    end
+    object QPurRemark: TStringField
+      FieldName = 'Remark'
+      Size = 100
+    end
+    object QPurCreate_Name: TStringField
+      FieldName = 'Create_Name'
+      Size = 10
+    end
+    object QPurCreate_Date: TDateTimeField
+      FieldName = 'Create_Date'
+    end
+    object QPurUpd_Name: TStringField
+      FieldName = 'Upd_Name'
+      Size = 10
+    end
+    object QPurUpd_Date: TDateTimeField
+      FieldName = 'Upd_Date'
+    end
+  end
+  object DPur: TDataSource
+    DataSet = QPur
+    Left = 137
+    Top = 336
+  end
+  object RPur: TppDBPipeline
+    DataSource = DPur
+    UserName = 'RPur'
+    Left = 176
+    Top = 336
+  end
+  object QList: TMSQuery
+    Connection = ADMSystem.ADMConnection
+    SQL.Strings = (
+      'DECLARE @Check_Date  datetime'
+      'SET @Check_Date=:Check_Date'
+      'select * from dbo.Te_Storea where List_No is not null'
+      'and MONTH(Create_Date) = MONTH(@Check_Date) - 1')
+    MasterSource = DTeStoreC
+    MasterFields = 'Mat_No'
+    DetailFields = 'Mat_No'
+    Left = 104
+    Top = 472
+    ParamData = <
+      item
+        DataType = ftDateTime
+        Name = 'Check_Date'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'Mat_No'
+        ParamType = ptInput
+      end>
+    object QListStr_Auto: TGuidField
+      FieldName = 'Str_Auto'
+      FixedChar = True
+      Size = 38
+    end
+    object QListList_No: TStringField
+      FieldName = 'List_No'
+      Size = 38
+    end
+    object QListItem_No: TIntegerField
+      FieldName = 'Item_No'
+    end
+    object QListMat_No: TStringField
+      FieldName = 'Mat_No'
+      Size = 14
+    end
+    object QListMat_Name: TStringField
+      FieldName = 'Mat_Name'
+      Size = 50
+    end
+    object QListAcc_Qty: TFloatField
+      FieldName = 'Acc_Qty'
+    end
+    object QListRemark: TStringField
+      FieldName = 'Remark'
+      Size = 100
+    end
+    object QListCreate_Name: TStringField
+      FieldName = 'Create_Name'
+      Size = 10
+    end
+    object QListCreate_Date: TDateTimeField
+      FieldName = 'Create_Date'
+    end
+    object QListUpd_Name: TStringField
+      FieldName = 'Upd_Name'
+      Size = 10
+    end
+    object QListUpd_Date: TDateTimeField
+      FieldName = 'Upd_Date'
+    end
+  end
+  object DList: TDataSource
+    DataSet = QList
+    Left = 137
+    Top = 472
+  end
+  object RList: TppDBPipeline
+    DataSource = DList
+    UserName = 'RList'
+    Left = 176
+    Top = 472
   end
 end
